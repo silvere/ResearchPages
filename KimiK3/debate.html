@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>争议与反方 · Kimi K3 调研</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161b30'/%3E%3Ctext x='32' y='44' font-size='28' font-weight='700' font-family='-apple-system,PingFang SC,sans-serif' fill='%23b8862e' text-anchor='middle'%3EK3%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Kimi K3 争议与反方：发布首日实测吐槽、开源含金量质疑、C 端月活腰斩、估值倍数争议与公司层面风波。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Kimi K3<span class="mk"> ☾ </span>RP 01</a>
+    <div class="nav-links">
+      <a href="index.html">总览</a>
+      <a href="tech.html">技术拆解</a>
+      <a href="landscape.html">竞争格局</a>
+      <a href="timeline.html">时间线</a>
+      <a href="debate.html" class="active">争议与反方</a>
+      <a href="sources.html">来源</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="stamp-row">
+      <div class="eyebrow">RP 01 · COUNTER-EVIDENCE · 2026-07</div>
+      <div class="stamp">立场平衡 · 不和稀泥</div>
+    </div>
+    <h1>掌声之外：五桶冷水</h1>
+    <p class="lede">头条都在说"中国 AI 进入前沿阵营"。本页专门收集<strong>有出处的反方证据</strong>：发布首日的实测吐槽、"开源"标签的水分、C 端产品的失血、估值倍数的质疑、公司层面的旧账。每条都标注了证据强度——有实据的批评和情绪化观点分开摆。</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="eyebrow">DAY-ONE · 发布首日的实测冷水</div>
+  <h2>① "很强，很贵，很爱炫技"</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="tag red">慢与贵</div>
+      <h3>V2EX 首日实测</h3>
+      <p>"体感首先就是慢，难以忍受的慢，然后就是贵"——有用户两次 API 对话花掉 15 元人民币。1M 上下文被批"负优化"：<strong>实测 256K 之后效果明显下降</strong>。相对 DeepSeek V4，输入贵约 6.7 倍、输出贵约 16.7 倍。<span class="verify warn">个人实测·多帖互证</span></p>
+    </div>
+    <div class="card">
+      <div class="tag red">套餐分级</div>
+      <h3>1M 上下文锁进高价档</h3>
+      <p>Kimi Code 中仅 199 元/月以上套餐可用 K3 完整 1M 上下文（49 元档不可用，99 元档限 256K）；客户端"满血版"要 699 元/月档。有用户反馈 199 元套餐"单次使用直接干完一周额度"。<span class="verify warn">论坛实据·官方未否认</span></p>
+    </div>
+    <div class="card">
+      <div class="tag gold">边际提升之争</div>
+      <h3>"不比 K2.7 好多少"？</h3>
+      <p>r/kimi 社区早期反馈偏中性："K3 is good... but it's not that much better than Kimi K2.7"。官方基准（Frontend Arena 第一）与首日体验之间存在明显张力——独立复测要再等几周才有答案。<span class="verify no">二手转述·未三角验证</span></p>
+    </div>
+    <div class="card">
+      <div class="tag gold">官方自承</div>
+      <h3>"过度主动"</h3>
+      <p>官方博客自己坦承 K3 存在"对思考历史敏感""过度主动（替用户做决定）"，且用户体验与 Claude Fable 5 / GPT-5.6 Sol "仍有明显差距"。媒体的措辞更直接：<strong>"很爱给你炫技"、UI 生成"风格模版化"</strong>。<span class="verify ok">官方一手+媒体印证</span></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">OPEN-SOURCE · "开源"的含金量</div>
+  <h2>② 全球最大"开源"模型，权重在哪？</h2>
+  <p>K3 发布当天顶着"全球最大开源模型"的标题，但三个事实让这个标签打了折扣：</p>
+  <div class="grid cols-3">
+    <div class="card">
+      <div class="tag">事实一</div>
+      <h3>发布日 HF 页面为空</h3>
+      <p>权重要等到 7 月 27 日才放出，至少 3 家媒体独立确认"HuggingFace 为空"这一细节。发布即可用的只有付费 API。</p>
+    </div>
+    <div class="card">
+      <div class="tag">事实二</div>
+      <h3>64+ 加速器门槛</h3>
+      <p>官方建议 64 个以上加速器组成超节点部署——真正能自建运行 2.8T 模型的机构极少，"开源"对绝大多数人意味着"可下载，不可运行"。</p>
+    </div>
+    <div class="card">
+      <div class="tag">事实三</div>
+      <h3>Modified MIT 争议</h3>
+      <p>K2 系 license 要求月活超 1 亿或月营收超 2000 万美元的产品显著展示 Kimi 标识。HN 上有观点认为这违反 OSI 非歧视原则，应叫"open weights"而非"open source"；也有人认为比 CC BY 还宽松。K3 license 待 7-27 确认。</p>
+    </div>
+  </div>
+  <p style="margin-top:18px">一个实操注脚是 <strong>Cursor 事件</strong>：2026 年 3 月 Cursor 发布 Composer 2 时未在营销材料中提及底层是 Kimi K2.5——技术上不违反 license（未达署名门槛），但被业内评价"从一开始就没提 Kimi 是个错误"，凸显了"开源署名条款"在商业实践中的空转。<span class="verify warn">单一博客·双方未否认</span></p>
+</section>
+
+<section>
+  <div class="eyebrow">BUSINESS · 商业化的另一面</div>
+  <h2>③ B 端狂奔，C 端失血</h2>
+  <div class="figure">
+    <svg viewBox="0 0 560 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kimi App 月活曲线：2024 年 Q4 峰值约 3600 万，2025 年 Q3 跌至约 900 万，降幅近六到七成；同期 ARR 从 1 亿美元升至 3 亿美元">
+      <text x="14" y="24" font-family="SF Mono,Menlo,monospace" font-size="11" letter-spacing="2" fill="#5f6169">C 端 MAU（万） vs B 端 ARR（亿美元）· 2024Q4 → 2026H1</text>
+      <line x1="50" y1="200" x2="540" y2="200" stroke="#d8d5cb" stroke-width="1"/>
+      <polyline points="80,60 200,110 320,168 440,172" fill="none" stroke="#a8342a" stroke-width="2.5"/>
+      <g fill="#a8342a">
+        <circle cx="80" cy="60" r="5"/><circle cx="320" cy="168" r="5"/>
+      </g>
+      <text x="60" y="48" font-family="SF Mono,Menlo,monospace" font-size="12" fill="#a8342a" font-weight="700">3600 万</text>
+      <text x="292" y="190" font-family="SF Mono,Menlo,monospace" font-size="12" fill="#a8342a" font-weight="700">≈900 万</text>
+      <polyline points="320,190 380,170 440,140 500,100" fill="none" stroke="#2e6e4e" stroke-width="2.5" stroke-dasharray="1 0"/>
+      <g fill="#2e6e4e">
+        <circle cx="380" cy="170" r="4"/><circle cx="440" cy="140" r="4"/><circle cx="500" cy="100" r="5"/>
+      </g>
+      <text x="356" y="158" font-family="SF Mono,Menlo,monospace" font-size="11" fill="#2e6e4e">$1亿</text>
+      <text x="418" y="128" font-family="SF Mono,Menlo,monospace" font-size="11" fill="#2e6e4e">$2亿</text>
+      <text x="478" y="88" font-family="SF Mono,Menlo,monospace" font-size="11" fill="#2e6e4e" font-weight="700">$3亿 ARR</text>
+      <g font-family="Songti SC,serif" font-size="11" fill="#5f6169">
+        <text x="60" y="222">2024 Q4</text>
+        <text x="180" y="222">2025 H1</text>
+        <text x="298" y="222">2025 Q3</text>
+        <text x="420" y="222">2026-03/04</text>
+        <text x="492" y="222">2026-06</text>
+      </g>
+      <text x="150" y="90" font-family="Songti SC,serif" font-size="11.5" fill="#a8342a">App 月活（QuestMobile 口径）</text>
+    </svg>
+    <div class="figcap"><b>FIG. V</b> 剪刀差：C 端月活从峰值跌去六到七成（3600 万 → 约 900 万，与 2025 年 2 月"暂停烧钱投流"直接相关），同期 B 端 ARR 却在六周内翻倍。Moonshot 主动选择了"弃 C 保 B"。多家财经媒体基于 QuestMobile 数据独立报道，方向一致；谷值在 902.7-967 万间因口径略有出入。</div>
+  </div>
+  <div class="vs">
+    <div class="side pro">
+      <h3><span class="tag green" style="margin:0">正方</span>战略聚焦</h3>
+      <ul>
+        <li>ARR 三月破 1 亿、四月破 2 亿、六月达 3 亿美元——B 端增长是真实的，且是主动砍投流后的有机增长。</li>
+        <li>放弃 C 端买量竞赛止损，把算力集中给模型研发，才有 K2 Thinking → K3 的爆发节奏。</li>
+        <li>估值 18 个月涨近 8 倍，一级市场用钱投了票；智谱、MiniMax 上市珠玉在前。</li>
+      </ul>
+    </div>
+    <div class="side con">
+      <h3><span class="tag red" style="margin:0">反方</span>估值悬空</h3>
+      <ul>
+        <li>200-315 亿美元估值对 2-3 亿 ARR，约 100 倍 P/ARR——高增长 SaaS 也很少超过 20-30 倍；且 ARR 数字来自内部披露，非审计文件。</li>
+        <li>公司未盈利，算力成本是黑洞，"持续融资是必选项"；IPO 更像资金接力而非里程碑。</li>
+        <li>一边开源削弱 API 付费逻辑，一边要百亿估值，商业模式的自洽性仍未被证明。<span class="verify no">部分为情绪化观点</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">COMPANY · 公司层面的旧账与新火</div>
+  <h2>④ 仲裁、指控与百人公司</h2>
+  <ul class="tl">
+    <li class="red">
+      <div class="d">2024-11 · 至今未结</div>
+      <h3>循环智能仲裁纠纷</h3>
+      <p>金沙江创投等 5 家循环智能投资方在香港国际仲裁中心对杨植麟、张宇韬提起仲裁，争议核心是创立月之暗面时是否取得竞业豁免的书面同意；朱啸虎并公开指控相关持股利益冲突。2026 年朱啸虎称"和解谈得差不多"，但<strong>案件既无撤诉公告也无裁决公开</strong>——悬而未决。<span class="verify ok">中英文多源</span></p>
+    </li>
+    <li class="red">
+      <div class="d">2026-02-24</div>
+      <h3>Anthropic 蒸馏指控</h3>
+      <p>Anthropic 公开指控 DeepSeek、Moonshot、MiniMax 用约 2.4 万个虚假账号"蒸馏" Claude，称 Moonshot 涉及超 340 万次交互（三家中第二）。注意：<strong>此为一方指控，且截至调研日未找到 Moonshot 的正式回应文本</strong>。6 月 Anthropic 又在美国参议院就此作证。<span class="verify warn">指控成立性未裁定</span></p>
+    </li>
+    <li>
+      <div class="d">口径存疑</div>
+      <h3>百人公司 or 三百人公司？</h3>
+      <p>不同报道称 Moonshot 全公司"100 余人"或"约 300 人"，两个数字都配着"头部大模型公司中人数最少"的定语。无论取哪个口径，用百人级团队打 OpenAI/Anthropic 万人级火力，既是效率神话，也是单点风险。<span class="verify no">矛盾点·未查明口径</span></p>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <div class="eyebrow">SCORECARD · 反方证据强度小结</div>
+  <h2>哪些批评站得住？</h2>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>批评</th><th>证据强度</th><th>一句话判断</th></tr></thead>
+      <tbody>
+        <tr><td>C 端月活腰斩</td><td class="num">强</td><td>多家媒体 + 第三方数据源一致，事实成立（但属主动战略选择）</td></tr>
+        <tr><td>K3 贵且慢、套餐分级苛刻</td><td class="num">中强</td><td>官方定价可核 + 多帖实测互证；"慢"待更大样本</td></tr>
+        <tr><td>"开源"名不副实</td><td class="num">中</td><td>发布日无权重是事实；最终判断押后到 7-27</td></tr>
+        <tr><td>估值倍数过高</td><td class="num">中</td><td>算术无误，但一级市场定价逻辑本就不同；ARR 未审计是真实软肋</td></tr>
+        <tr><td>K3 较 K2.7 提升有限</td><td class="num">弱</td><td>仅二手社区转述，等独立复测</td></tr>
+        <tr><td>"开源只是营销/慢动作崩溃"</td><td class="num">弱</td><td>情绪化观点，论据未三角验证，仅存档不采信</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="pager">
+  <a href="timeline.html">← 时间线</a>
+  <a href="sources.html">来源 →</a>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>RP 01 · KIMI K3 · 调研于 2026-07-17</p>
+    <p><a href="../index.html">← 调研台</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

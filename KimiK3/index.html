@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimi K3 · 深度调研总览</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161b30'/%3E%3Ctext x='32' y='44' font-size='28' font-weight='700' font-family='-apple-system,PingFang SC,sans-serif' fill='%23b8862e' text-anchor='middle'%3EK3%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Kimi K3 深度调研：2026-07-16 发布的 2.8T 参数模型如何把中国开源 AI 首次带进前沿阵营——六页联动，关键结论逐条事实核验。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Kimi K3<span class="mk"> ☾ </span>RP 01</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">总览</a>
+      <a href="tech.html">技术拆解</a>
+      <a href="landscape.html">竞争格局</a>
+      <a href="timeline.html">时间线</a>
+      <a href="debate.html">争议与反方</a>
+      <a href="sources.html">来源</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="stamp-row">
+        <div class="eyebrow">RP 01 · KIMI K3 · 发布于 2026-07-16</div>
+        <div class="stamp">调研于发布次日</div>
+      </div>
+      <h1>中国开源模型，<br>第一次坐进前沿牌桌</h1>
+      <p class="lede">2.8 万亿参数、100 万 token 上下文、独立评测全球第 4——Kimi K3 让中国模型首次<strong>追平西方上一代旗舰（Claude Opus 4.8 / GPT-5.5），并咬住最新一代（Fable 5 / GPT-5.6 Sol）</strong>。同时它把价格提到接近西方中端模型，宣告"中国 AI = 超低价"时代进入尾声。</p>
+      <blockquote style="margin-top:26px">
+        本报告的一句话判断：K3 是能力上的里程碑、商业上的豪赌——"开源"成色等 7 月 27 日权重落地才能验收，涨价能否站住等独立复测和市场投票。
+        <cite>核心结论 · 五路调研 + 12 条关键结论逐条核验</cite>
+      </blockquote>
+    </div>
+    <div class="figure" style="margin:0">
+      <svg viewBox="0 0 560 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="K3 速览图：上半部为四项已核实事实（2.8T 参数、1M 上下文、AA 第 4 名、$15 输出价），下半部为三个待验证悬念（权重开源、涨价接受度、独立复测）">
+      <defs>
+        <clipPath id="mooncut"><circle cx="280" cy="96" r="46"/></clipPath>
+      </defs>
+      <rect x="8" y="8" width="544" height="414" fill="none" stroke="#1a1c22" stroke-width="1.5"/>
+      <circle cx="280" cy="96" r="46" fill="#161b30"/>
+      <circle cx="298" cy="82" r="42" fill="#f5f4f0" clip-path="url(#mooncut)" opacity=".92"/>
+      <text x="280" y="168" font-family="Songti SC,serif" font-size="19" font-weight="900" fill="#1a1c22" text-anchor="middle">月之暗面 · Kimi K3</text>
+      <text x="280" y="188" font-family="SF Mono,Menlo,monospace" font-size="10" letter-spacing="2" fill="#5f6169" text-anchor="middle">MOONSHOT AI · 2026-07-16</text>
+      <g font-family="SF Mono,Menlo,monospace" font-size="10" fill="#8f6717">
+        <text x="60" y="52" letter-spacing="1">PARAMS</text>
+        <text x="60" y="120" letter-spacing="1">CONTEXT</text>
+        <text x="440" y="52" letter-spacing="1">AA RANK</text>
+        <text x="428" y="120" letter-spacing="1">OUT PRICE</text>
+      </g>
+      <g font-family="Songti SC,serif" font-weight="900" fill="#1a1c22">
+        <text x="60" y="82" font-size="28">2.8T</text>
+        <text x="60" y="150" font-size="28">1M</text>
+        <text x="440" y="82" font-size="28">#4</text>
+        <text x="428" y="150" font-size="28">$15</text>
+      </g>
+      <g font-family="Songti SC,serif" font-size="11" fill="#5f6169">
+        <text x="60" y="98">MoE · 896 选 16</text>
+        <text x="60" y="166">1,048,576 tokens</text>
+        <text x="440" y="98">57.1 分 · 独立评测</text>
+        <text x="428" y="166">/百万 token</text>
+      </g>
+      <line x1="30" y1="216" x2="530" y2="216" stroke="#d8d5cb" stroke-width="1"/>
+      <text x="30" y="244" font-family="SF Mono,Menlo,monospace" font-size="10.5" letter-spacing="2" fill="#a8342a">OPEN QUESTIONS · 三个待验证悬念</text>
+      <g>
+        <rect x="30" y="260" width="152" height="130" fill="none" stroke="#a8342a" stroke-width="1.2" stroke-dasharray="5 4"/>
+        <rect x="204" y="260" width="152" height="130" fill="none" stroke="#a8342a" stroke-width="1.2" stroke-dasharray="5 4"/>
+        <rect x="378" y="260" width="152" height="130" fill="none" stroke="#a8342a" stroke-width="1.2" stroke-dasharray="5 4"/>
+      </g>
+      <g font-family="Songti SC,serif" font-size="13.5" font-weight="900" fill="#1a1c22">
+        <text x="46" y="288">权重真开源？</text>
+        <text x="220" y="288">涨价站得住？</text>
+        <text x="394" y="288">跑分复现得了？</text>
+      </g>
+      <g font-family="Songti SC,serif" font-size="11.5" fill="#454750">
+        <text x="46" y="312">承诺 07-27 放出，</text>
+        <text x="46" y="330">发布日 HF 为空；</text>
+        <text x="46" y="348">license 条款待验</text>
+        <text x="220" y="312">输出价 4 倍于上代，</text>
+        <text x="220" y="330">首日实测"慢且贵"，</text>
+        <text x="220" y="348">1M 档锁高价套餐</text>
+        <text x="394" y="312">发布时全是自报数字，</text>
+        <text x="394" y="330">独立复测滞后于</text>
+        <text x="394" y="348">月度发版节奏</text>
+      </g>
+      <g font-family="SF Mono,Menlo,monospace" font-size="9.5" fill="#a8342a">
+        <text x="46" y="374">→ debate.html</text>
+        <text x="220" y="374">→ landscape.html</text>
+        <text x="394" y="374">→ tech.html</text>
+      </g>
+      <text x="280" y="412" font-family="SF Mono,Menlo,monospace" font-size="9.5" letter-spacing="2" fill="#5f6169" text-anchor="middle">FACTS VERIFIED · QUESTIONS PENDING · REVISIT 07-27</text>
+      </svg>
+      <div class="figcap"><b>FIG. 0</b> 一图速览 —— 上半部四个数字全部经事实核验（多源交叉）；下半部三个悬念是本报告刻意留下的跟踪点，7 月 27 日权重发布是最近的验收日。</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="eyebrow">KEY FINDINGS · 核心发现</div>
+  <h2>五条带走的结论</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="tag gold">01 · 位置</div>
+      <h3>追平上一代，咬住最新一代</h3>
+      <p>Artificial Analysis 独立评测 57.1 分、全球第 4：压过 Claude Opus 4.8，距 Claude Fable 5（59.9）一档之遥；LMArena 前端编程盲测甚至排第一。对开源阵营则断档领先约 6 分。→ <a class="inline" href="landscape.html">竞争格局</a></p>
+    </div>
+    <div class="card">
+      <div class="tag">02 · 技术</div>
+      <h3>不是放大，是换引擎</h3>
+      <p>KDA 混合线性注意力（1M 上下文最高 6.3× 解码加速）+ AttnRes + Gated MLA + Stable LatentMoE（896 选 16），官方称训练效率较 K2 提升 2.5 倍。技术报告未发，数字待复现。→ <a class="inline" href="tech.html">技术拆解</a></p>
+    </div>
+    <div class="card">
+      <div class="tag">03 · 定价</div>
+      <h3>主动告别超低价</h3>
+      <p>$3 输入 / $15 输出，数倍于自家上代、5-10 倍于 DeepSeek——被解读为"中国 AI 超低价时代终结"的第一个信号。是自信还是自断武器，取决于能力差距能保持多久。→ <a class="inline" href="landscape.html">竞争格局</a></p>
+    </div>
+    <div class="card">
+      <div class="tag">04 · 节奏</div>
+      <h3>2-3 个月一发版的恐怖迭代</h3>
+      <p>K1.5 → K2 → K2 Thinking → K2.5 → K2.6 → K2.7-Code → K3，十八个月七次实质发版；估值同步从 43 亿美元冲到 200 亿+，ARR 六周翻倍。→ <a class="inline" href="timeline.html">时间线</a></p>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <div class="tag red">05 · 反面</div>
+      <h3>掌声之下，账没有结清</h3>
+      <p>C 端月活从峰值跌去六到七成（主动弃 C 保 B）；约 100 倍 P/ARR 的估值倍数；发布首日"慢且贵"的实测；"开源"权重发布日为空档；仲裁旧案未结、Anthropic 蒸馏指控未回应。这些不推翻 K3 的技术成就，但它们决定这场豪赌的另一半胜负。→ <a class="inline" href="debate.html">争议与反方</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">WHY IT MATTERS · 为什么值得深研</div>
+  <h2>三个读它的理由</h2>
+  <div class="grid cols-3">
+    <div class="card">
+      <div class="tag">行业坐标</div>
+      <h3>开源追平前沿的时刻</h3>
+      <p>"开源永远落后闭源一年"的经验法则正在失效：K3 距最强闭源模型只剩一档。若 7-27 权重兑现，前沿能力第一次可以被下载。</p>
+    </div>
+    <div class="card">
+      <div class="tag gold">商业样本</div>
+      <h3>低价路线的分水岭</h3>
+      <p>中国模型靠性价比攻下 OpenRouter（2026-02 token 调用量首超美国）。K3 主动涨价是对这条路线的第一次背离——它的成败会定义后来者的定价勇气。</p>
+    </div>
+    <div class="card">
+      <div class="tag red">风险样本</div>
+      <h3>百人团队的极限压强</h3>
+      <p>百人级公司、未结仲裁、未盈利、百倍估值、地缘指控——K3 同时是一份"高能力高风险"公司的活体样本，正反两面都值得押注者细读。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">METHOD · 本报告怎么来的</div>
+  <h2>调研方法与可信度声明</h2>
+  <p>本站于 <strong>2026 年 7 月 17 日</strong>（K3 发布次日）完成：5 路并行联网调研（全景定位 / 技术拆解 / 竞争格局 / 争议反方 / 时间线动态），中英文来源交叉；拟写入的 12 条关键结论交独立事实核验流程<strong>证伪式核查</strong>——9 条完全确认，3 条加注（Opus 4.8 精确分值为转述值、官方基准为自报数字、K2 Thinking 训练成本被 CEO 否认为官方数字）。全部引用见<a class="inline" href="sources.html">来源页</a>。存疑与未三角验证的内容在正文中以 <span class="verify warn">标注</span> 显式标出，宁可少一个论点，不放一个错误。</p>
+  <div class="stats">
+    <div class="stat"><div class="v">5</div><div class="k">并行调研角度</div></div>
+    <div class="stat"><div class="v">12</div><div class="k">关键结论逐条核验</div></div>
+    <div class="stat"><div class="v">40<small>+</small></div><div class="k">引用来源（含一手）</div></div>
+    <div class="stat"><div class="v">07-27</div><div class="k">下一个验收日（权重）</div></div>
+  </div>
+</section>
+
+<div class="pager">
+  <a href="../index.html">← 调研台</a>
+  <a href="tech.html">技术拆解 →</a>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>RP 01 · KIMI K3 · 调研于 2026-07-17</p>
+    <p><a href="../index.html">← 调研台</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

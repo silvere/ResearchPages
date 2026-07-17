@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>竞争格局 · Kimi K3 调研</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161b30'/%3E%3Ctext x='32' y='44' font-size='28' font-weight='700' font-family='-apple-system,PingFang SC,sans-serif' fill='%23b8862e' text-anchor='middle'%3EK3%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Kimi K3 竞争格局：与 Claude/GPT/Gemini 前沿闭源模型的差距，与 DeepSeek/Qwen/GLM/MiniMax 的开源内战，以及价格战的终结信号。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Kimi K3<span class="mk"> ☾ </span>RP 01</a>
+    <div class="nav-links">
+      <a href="index.html">总览</a>
+      <a href="tech.html">技术拆解</a>
+      <a href="landscape.html" class="active">竞争格局</a>
+      <a href="timeline.html">时间线</a>
+      <a href="debate.html">争议与反方</a>
+      <a href="sources.html">来源</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="stamp-row">
+      <div class="eyebrow">RP 01 · COMPETITIVE LANDSCAPE · 2026-07</div>
+      <div class="stamp">Frontier Entry</div>
+    </div>
+    <h1>追平上一代旗舰，<br>咬住最新一代</h1>
+    <p class="lede">K3 的格局位置一句话说清：<strong>综合能力追平了西方上一代旗舰（Claude Opus 4.8 / GPT-5.5），与最新一代（Claude Fable 5 / GPT-5.6 Sol）仍有一档差距</strong>——Artificial Analysis 独立评测第 4 名，是首个进入"前沿阵营"的中国模型。同时它把价格提到了接近西方中端模型的位置，被解读为"中国 AI 超低价时代终结"的信号。</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="eyebrow">FRONTIER · 与闭源前沿的距离</div>
+  <h2>一张梯度图看位置</h2>
+  <div class="figure">
+    <svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AA 智能指数横条图：Claude Fable 5 得 59.9 分居首，GPT-5.6 Sol Max 58.9，GPT-5.6 Sol xhigh 57.7，Kimi K3 57.1 排第四，Claude Opus 4.8 55.7，Grok 4.5 High 53.8，开源第二名 GLM-5.2 Max 51.1">
+      <text x="14" y="24" font-family="SF Mono,Menlo,monospace" font-size="11" letter-spacing="2" fill="#5f6169">ARTIFICIAL ANALYSIS · INTELLIGENCE INDEX v4.1 · 2026-07</text>
+      <g font-family="Songti SC,serif" font-size="13.5" font-weight="700" fill="#1a1c22">
+        <text x="14" y="62">Claude Fable 5</text>
+        <text x="14" y="100">GPT-5.6 Sol Max</text>
+        <text x="14" y="138">GPT-5.6 Sol xhigh</text>
+        <text x="14" y="176" fill="#8f6717">Kimi K3 Max ☾</text>
+        <text x="14" y="214">Claude Opus 4.8</text>
+        <text x="14" y="252">Grok 4.5 High</text>
+        <text x="14" y="290" fill="#5f6169">GLM-5.2 Max（开源第2）</text>
+      </g>
+      <g>
+        <rect x="170" y="48" width="359" height="18" fill="#232a45"/>
+        <rect x="170" y="86" width="353" height="18" fill="#232a45"/>
+        <rect x="170" y="124" width="346" height="18" fill="#3a4468"/>
+        <rect x="170" y="162" width="343" height="18" fill="#b8862e"/>
+        <rect x="170" y="200" width="334" height="18" fill="#8d93ab"/>
+        <rect x="170" y="238" width="323" height="18" fill="#8d93ab"/>
+        <rect x="170" y="276" width="307" height="18" fill="#d8d5cb"/>
+      </g>
+      <g font-family="SF Mono,Menlo,monospace" font-size="12" fill="#1a1c22">
+        <text x="535" y="62">59.9</text>
+        <text x="529" y="100">58.9</text>
+        <text x="522" y="138">57.7</text>
+        <text x="519" y="176" font-weight="700" fill="#8f6717">57.1</text>
+        <text x="510" y="214">55.7</text>
+        <text x="499" y="252">53.8</text>
+        <text x="483" y="290" fill="#5f6169">51.1</text>
+      </g>
+      <line x1="170" y1="40" x2="170" y2="300" stroke="#d8d5cb" stroke-width="1"/>
+      <text x="280" y="320" font-family="Songti SC,serif" font-size="11.5" fill="#5f6169" text-anchor="middle">条长按 40 分起坐标缩放以放大差异 · GLM-5.2 对比数字为第三方转述，置信度中</text>
+    </svg>
+    <div class="figcap"><b>FIG. II</b> K3 卡进了闭源三强的缝隙里 —— 上面压着 Fable 5 与 GPT-5.6 Sol，下面压住 Opus 4.8。对开源阵营则是断档领先：比开源第二名高约 6 分。（Opus 4.8 的 55.7 为第三方转述值，"K3 领先 Opus 4.8"的定性结论已获 AA 官方确认。）</div>
+  </div>
+  <p>值得注意的两个单项：LMArena <strong>Frontend Code Arena 盲测中 K3 以 1679 分排名第一</strong>（开发者偏好超过 Fable 5）；AA 的"长程知识工作" Elo 1547 仅次于 Fable 5。但 Moonshot 官方博客也坦承：<strong>综合用户体验与 Fable 5、GPT-5.6 Sol 相比"仍有明显差距"</strong>。单项冒尖、综合还差一口气，是对 K3 位置最诚实的描述。</p>
+</section>
+
+<section>
+  <div class="eyebrow">DOMESTIC · 开源内战</div>
+  <h2>中国开源阵营：K3 断档，但对手极密集</h2>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>厂商 / 模型</th><th>最新旗舰（2026 上半年）</th><th>规模</th><th>关键动作</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td><strong>月之暗面 Kimi</strong></td><td>K3（07-16）</td><td class="num">2.8T / MoE</td><td>首入前沿阵营；权重 07-27 放出；估值 $200 亿+</td></tr>
+        <tr><td>DeepSeek</td><td>V4 预览（04-24）→ V4.1（06）</td><td class="num">1.6T / 49B 激活</td><td>SWE-bench 80.6%；$0.3/M 输入的性价比标杆；V4.1-Flash 上线一周登 HF 趋势榜第一</td></tr>
+        <tr><td>阿里 Qwen</td><td>Qwen3.5（03）→ 3.6-Max（04-20）</td><td class="num">≤397B-A17B（开源系）</td><td>3.6-Max 首次旗舰仅闭源发布——开源王者开始留一手；HF 衍生模型超 11 万个，生态第一</td></tr>
+        <tr><td>智谱 GLM</td><td>GLM-5（02 末）→ GLM-6（06）</td><td class="num">744B-A40B</td><td>2026-01 港股上市；需求旺到上调编程套餐价格；主打国产芯片（昇腾/昆仑芯）训练</td></tr>
+        <tr><td>MiniMax</td><td>M2.5 → M2.7</td><td class="num">10B 激活</td><td>2026 年初港股上市；M2.7 以 GLM-5.1 约 1/5 的成本打出其 94% 的性能</td></tr>
+        <tr><td>阶跃星辰</td><td>Step-3.5-Flash</td><td class="num">196B-A11B</td><td>被评"跻身新六小虎第一梯队"</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:16px">采用度的硬数据：<strong>2026 年 2 月，OpenRouter 上中国模型的全球 token 调用量首次超过美国模型</strong>（单周 5.16 万亿 vs 2.7 万亿）；HuggingFace 2026 春季报告显示中国模型下载量占比 41%，成为最大份额。"六小龙"则彻底分化：智谱、MiniMax 已上市，Moonshot 估值狂奔，而百川转向 AI 医疗、零一万物解散预训练团队——<strong>通用大模型的牌桌上，中国只剩下 4-5 个玩家</strong>。</p>
+</section>
+
+<section>
+  <div class="eyebrow">PRICING · 价格战的拐点</div>
+  <h2>K3 涨价：超低价时代的终结信号？</h2>
+  <div class="figure">
+    <svg viewBox="0 0 560 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="API 输出价格对比条形图：DeepSeek V4 约 1 美元级，Kimi K2.6 为 4 美元，Kimi K3 涨至 15 美元，接近西方中端模型价位">
+      <text x="14" y="24" font-family="SF Mono,Menlo,monospace" font-size="11" letter-spacing="2" fill="#5f6169">OUTPUT PRICE · USD / 1M TOKENS · 2026-07</text>
+      <g font-family="Songti SC,serif" font-size="13.5" font-weight="700" fill="#1a1c22">
+        <text x="14" y="70">MiniMax M3</text>
+        <text x="14" y="115">Kimi K2.6</text>
+        <text x="14" y="160" fill="#8f6717">Kimi K3 ☾</text>
+        <text x="14" y="205">（参考）西方前沿输出价</text>
+      </g>
+      <g>
+        <rect x="170" y="56" width="58" height="18" fill="#8d93ab"/>
+        <rect x="170" y="101" width="96" height="18" fill="#3a4468"/>
+        <rect x="170" y="146" width="360" height="18" fill="#b8862e"/>
+        <rect x="170" y="191" width="360" height="18" fill="#d8d5cb" stroke="#8d93ab" stroke-dasharray="5 4"/>
+      </g>
+      <g font-family="SF Mono,Menlo,monospace" font-size="12" fill="#1a1c22">
+        <text x="236" y="70">$2.40</text>
+        <text x="274" y="115">$4.00</text>
+        <text x="479" y="160" font-weight="700" fill="#fff">$15.00</text>
+        <text x="380" y="205" fill="#5f6169">≈ $15 一档（Sonnet 级）</text>
+      </g>
+      <text x="280" y="238" font-family="Songti SC,serif" font-size="11.5" fill="#5f6169" text-anchor="middle">输入价：K3 $3.00（缓存命中 $0.30）vs K2.6 $0.95 vs DeepSeek V4 约 $0.30</text>
+    </svg>
+    <div class="figcap"><b>FIG. III</b> K3 输出价是自家上代的数倍，直接对齐西方中端模型价位。The Decoder 的判断："中国 AI 超低价时代终结"——但注意这一判断目前只有 K3 一个数据点，DeepSeek 们是否跟进仍未可知。（K2.6 价格各渠道口径不一：官方参考 $0.55-0.95 输入 / $2.65-4.00 输出，图中取常被引用的 $4 口径。）</div>
+  </div>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="tag gold">看多解读</div>
+      <h3>价值定价 = 自信</h3>
+      <p>敢从"1/5 价格"升到"同档价格"，前提是能力真的坐进了前沿阵营。缓存命中 $0.30 的输入价 + 1M 上下文不加价，对高缓存命中的编码/agent 场景仍有性价比设计。</p>
+    </div>
+    <div class="card">
+      <div class="tag red">看空解读</div>
+      <h3>丢掉最锋利的武器</h3>
+      <p>中国模型攻下 OpenRouter 靠的正是极致性价比。K3 价格 5-10 倍于 DeepSeek V4，若能力差距被追平（DeepSeek V4.1 之后的版本、GLM-6），涨价可能反噬采用量——尤其在对价格敏感的开发者长尾。</p>
+    </div>
+  </div>
+</section>
+
+<div class="pager">
+  <a href="tech.html">← 技术拆解</a>
+  <a href="timeline.html">时间线 →</a>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>RP 01 · KIMI K3 · 调研于 2026-07-17</p>
+    <p><a href="../index.html">← 调研台</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

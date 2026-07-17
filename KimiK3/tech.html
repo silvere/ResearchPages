@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术拆解 · Kimi K3 调研</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161b30'/%3E%3Ctext x='32' y='44' font-size='28' font-weight='700' font-family='-apple-system,PingFang SC,sans-serif' fill='%23b8862e' text-anchor='middle'%3EK3%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Kimi K3 技术拆解：2.8T 参数 Stable LatentMoE、Kimi Delta Attention、1M 上下文、量化感知训练与基准成绩。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">Kimi K3<span class="mk"> ☾ </span>RP 01</a>
+    <div class="nav-links">
+      <a href="index.html">总览</a>
+      <a href="tech.html" class="active">技术拆解</a>
+      <a href="landscape.html">竞争格局</a>
+      <a href="timeline.html">时间线</a>
+      <a href="debate.html">争议与反方</a>
+      <a href="sources.html">来源</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="stamp-row">
+      <div class="eyebrow">RP 01 · TECHNICAL DOSSIER · 2026-07</div>
+      <div class="stamp">Weights TBD · 07-27</div>
+    </div>
+    <h1>把 3 万亿参数塞进一次前向传播</h1>
+    <p class="lede">K3 不是 K2 的简单放大。它把三项官方命名的新注意力机制（KDA、AttnRes、Gated MLA）、一个新的 MoE 框架（Stable LatentMoE）和从 SFT 阶段就开始的量化感知训练焊在一起，官方称<strong>算力—能力转化效率较 K2 提升约 2.5 倍</strong>。注意：技术报告尚未发布，本页官方数字均以 7 月 27 日的正式报告为最终口径。</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="eyebrow">SPEC SHEET · 关键规格</div>
+  <h2>一张规格表</h2>
+  <div class="stats">
+    <div class="stat"><div class="v">2.8<small>T</small></div><div class="k">总参数（MoE）</div></div>
+    <div class="stat"><div class="v">896<small> ➔ 16</small></div><div class="k">专家总数 ➔ 每 token 激活</div></div>
+    <div class="stat"><div class="v">1<small>M</small></div><div class="k">上下文窗口（1,048,576）</div></div>
+    <div class="stat"><div class="v">6.3<small>×</small></div><div class="k">1M 上下文最高解码加速（官方）</div></div>
+    <div class="stat"><div class="v">2.5<small>×</small></div><div class="k">训练效率 vs K2（官方自报）</div></div>
+  </div>
+  <p>原生多模态（视觉+文本）、常驻思考模式——K3 没有"非推理模式"，只能通过 <code style="font-family:var(--mono);font-size:13px">reasoning_effort</code> 调节思考强度（当前仅开放 <code style="font-family:var(--mono);font-size:13px">max</code> 一档）。这与 K2.x 的 thinking 开关是两种产品哲学：<strong>K3 认为思考不该是可选项</strong>。</p>
+</section>
+
+<section>
+  <div class="eyebrow">ARCHITECTURE · 架构三件套</div>
+  <h2>三个官方命名的新机制</h2>
+  <div class="figure">
+    <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="K3 架构图：输入经 Kimi Delta Attention 与 Gated MLA 处理，Attention Residuals 跨层检索，进入 896 选 16 的 Stable LatentMoE">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#232a45"/>
+        </marker>
+      </defs>
+      <rect x="20" y="125" width="110" height="50" fill="none" stroke="#232a45" stroke-width="1.5"/>
+      <text x="75" y="147" font-family="Songti SC,serif" font-size="14" font-weight="900" fill="#232a45" text-anchor="middle">输入序列</text>
+      <text x="75" y="165" font-family="SF Mono,Menlo,monospace" font-size="10" fill="#5f6169" text-anchor="middle">up to 1M tokens</text>
+      <rect x="180" y="60" width="150" height="54" fill="#232a45"/>
+      <text x="255" y="83" font-family="Songti SC,serif" font-size="14" font-weight="900" fill="#f2f0ea" text-anchor="middle">KDA 混合线性注意力</text>
+      <text x="255" y="101" font-family="SF Mono,Menlo,monospace" font-size="10" fill="#b8862e" text-anchor="middle">decode ≤6.3× faster @1M</text>
+      <rect x="180" y="126" width="150" height="48" fill="#3a4468"/>
+      <text x="255" y="147" font-family="Songti SC,serif" font-size="14" font-weight="900" fill="#f2f0ea" text-anchor="middle">Gated MLA</text>
+      <text x="255" y="164" font-family="SF Mono,Menlo,monospace" font-size="10" fill="#d8dbe8" text-anchor="middle">门控的潜注意力</text>
+      <rect x="180" y="186" width="150" height="48" fill="none" stroke="#b8862e" stroke-width="2" stroke-dasharray="6 4"/>
+      <text x="255" y="207" font-family="Songti SC,serif" font-size="14" font-weight="900" fill="#8f6717" text-anchor="middle">AttnRes 注意力残差</text>
+      <text x="255" y="224" font-family="SF Mono,Menlo,monospace" font-size="10" fill="#8f6717" text-anchor="middle">跨深度选择性检索</text>
+      <rect x="390" y="95" width="150" height="110" fill="#161b30"/>
+      <text x="465" y="128" font-family="Songti SC,serif" font-size="15" font-weight="900" fill="#f2f0ea" text-anchor="middle">Stable LatentMoE</text>
+      <text x="465" y="150" font-family="SF Mono,Menlo,monospace" font-size="11" fill="#b8862e" text-anchor="middle">896 experts</text>
+      <text x="465" y="168" font-family="SF Mono,Menlo,monospace" font-size="11" fill="#b8862e" text-anchor="middle">activate 16 / token</text>
+      <text x="465" y="190" font-family="SF Mono,Menlo,monospace" font-size="9.5" fill="#8d93ab" text-anchor="middle">Quantile Balancing 负载均衡</text>
+      <path d="M130 150 L172 90" fill="none" stroke="#232a45" stroke-width="1.8" marker-end="url(#ar)"/>
+      <path d="M130 150 L172 150" fill="none" stroke="#232a45" stroke-width="1.8" marker-end="url(#ar)"/>
+      <path d="M130 150 L172 210" fill="none" stroke="#232a45" stroke-width="1.8" marker-end="url(#ar)"/>
+      <path d="M330 150 L382 150" fill="none" stroke="#232a45" stroke-width="1.8" marker-end="url(#ar)"/>
+      <text x="280" y="272" font-family="Songti SC,serif" font-size="12.5" fill="#5f6169" text-anchor="middle">量化感知训练贯穿始终：MXFP4 权重 + MXFP8 激活（自 SFT 阶段起）</text>
+    </svg>
+    <div class="figcap"><b>FIG. I</b> K3 架构要点 —— 三种注意力机制处理超长上下文，Stable LatentMoE 让 2.8T 总参数每次只激活极小一部分。图中比例为示意，层间连接细节以 7-27 技术报告为准。</div>
+  </div>
+  <div class="grid cols-3">
+    <div class="card">
+      <div class="tag">KDA</div>
+      <h3>Kimi Delta Attention</h3>
+      <p>混合线性注意力，为 1M 上下文而生：官方称最高 <strong>6.3 倍解码加速</strong>。官方已向 vLLM 社区贡献 "KDA with prefix-cache" 实现——开源生态提前铺路。</p>
+    </div>
+    <div class="card">
+      <div class="tag gold">AttnRes</div>
+      <h3>Attention Residuals</h3>
+      <p>用"跨深度选择性检索"替代逐层均匀累积的表示传递，官方称带来约 <strong>25% 训练效率提升</strong>，额外开销小于 2%。</p>
+    </div>
+    <div class="card">
+      <div class="tag">Gated MLA</div>
+      <h3>门控潜注意力</h3>
+      <p>在 K2 时代的 Multi-head Latent Attention 上加门控，提升超大规模下的注意力选择性。三者叠加构成官方宣称 2.5× 训练效率的底盘。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">TRAINING · 训练与推理</div>
+  <h2>训练：已知与未知</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="tag green">已披露</div>
+      <h3>官方确认的做法</h3>
+      <p>优化器为 <strong>Per-Head Muon</strong>（延续 K2 系 Muon 路线并按注意力头细化）；从 SFT 阶段起做 <strong>MXFP4 权重 + MXFP8 激活</strong>的量化感知训练，权重放出时大概率自带 FP4 量化版；激活函数 SiTU（Sigmoid Tanh Unit）<span class="verify warn">单源转述</span>。</p>
+    </div>
+    <div class="card">
+      <div class="tag red">未披露</div>
+      <h3>等技术报告补的坑</h3>
+      <p>预训练数据总量（token 数）、训练总成本（参照系：K2 Thinking 曾被媒体报道约 460 万美元，CEO 回应称非官方数字）、RL 与 agentic 训练方法论——全部要等 7 月 27 日随权重发布的技术报告。<strong>本页所有"效率提升"数字目前均为官方自报，无第三方复现。</strong></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">BENCHMARKS · 基准成绩</div>
+  <h2>成绩单：官方口径 vs 独立评测</h2>
+  <p>一个重要信号：Moonshot <strong>主动放弃了 SWE-bench Verified 和 AIME</strong> 这两个趋于饱和的经典基准，改用自建的更难基准（DeepSWE、FrontierSWE、SWE Marathon 等）。好处是区分度，代价是与历史模型失去可比性——读下表时注意口径。</p>
+  <h3 style="margin-top:26px">官方自报（reasoning_effort = max）</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>基准</th><th>K3 分数</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>GPQA-Diamond</td><td class="num">93.5%</td><td>研究生级科学问答</td></tr>
+        <tr><td>Terminal-Bench 2.1</td><td class="num">88.3</td><td>终端操作智能体（AA 独立复测 85.0，方向一致）</td></tr>
+        <tr><td>BrowseComp</td><td class="num">90.4</td><td>网页浏览智能体；另见 91.2 的转述口径，以官方博客 90.4 为准</td></tr>
+        <tr><td>MathVision（+Python）</td><td class="num">97.8%</td><td>视觉数学推理</td></tr>
+        <tr><td>FrontierSWE</td><td class="num">81.2</td><td rowspan="3">Moonshot 自建编码基准系，无历史可比对象</td></tr>
+        <tr><td>ProgramBench</td><td class="num">77.8</td></tr>
+        <tr><td>SWE Marathon</td><td class="num">42.0</td></tr>
+        <tr><td>DeepSWE</td><td class="num">67.5</td><td>Kimi Code 框架下；mini-SWE-agent 框架下 67.3</td></tr>
+        <tr><td>OmniDocBench</td><td class="num">91.1%</td><td>文档理解</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3 style="margin-top:30px">Artificial Analysis 独立评测（Intelligence Index v4.1）</h3>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>模型</th><th>综合智能指数</th><th>排名</th></tr></thead>
+      <tbody>
+        <tr><td>Claude Fable 5</td><td class="num">59.9</td><td class="num">1</td></tr>
+        <tr><td>GPT-5.6 Sol Max</td><td class="num">58.9</td><td class="num">2</td></tr>
+        <tr><td>GPT-5.6 Sol xhigh</td><td class="num">57.7</td><td class="num">3</td></tr>
+        <tr class="hl"><td><strong>Kimi K3 Max</strong></td><td class="num"><strong>57.1</strong></td><td class="num"><strong>4</strong></td></tr>
+        <tr><td>Claude Opus 4.8</td><td class="num">55.7 *</td><td class="num">5</td></tr>
+        <tr><td>Grok 4.5 High</td><td class="num">53.8</td><td class="num">6</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px" class="figcap" ><b>NOTE</b> K3 57.1 / Fable 5 59.9 / GPT-5.6 Sol Max 58.9 及第 4 名排位已经 AA 官方渠道确认；* Opus 4.8 的 55.7 为第三方转述值，仅"K3 领先 Opus 4.8"的定性结论获一手确认。官方自报基准均为 Moonshot 数字，发布时独立复测尚未完成。</p>
+  <p style="margin-top:16px">同榜单细分：Coding Index 76.2、Agentic Index 50.1、Humanity's Last Exam 44.4%（GPT-5.6 Sol Max 为 45.1%）。短板同样清楚：<strong>知识广度（AA-Omniscience 18.4，远低于 Gemini 3.1 Pro 的 32.9）和输出速度（62 tok/s，低于中位数）</strong>。</p>
+</section>
+
+<section>
+  <div class="eyebrow">SERVING · 部署与价格</div>
+  <h2>怎么用、多少钱</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="tag gold">API 定价（官方 / OpenRouter 一致）</div>
+      <h3>$0.30 / $3.00 / $15.00</h3>
+      <p>每百万 token：输入缓存命中 $0.30，未命中 $3.00，输出 $15.00；<strong>1M 长上下文不加价</strong>。官方称编码负载下缓存命中率可超 90%。相比 K2.7-Code 涨价约 3-4 倍——定价细读见<a class="inline" href="landscape.html">竞争格局</a>页。</p>
+    </div>
+    <div class="card">
+      <div class="tag hollow">获取渠道（截至 2026-07-17）</div>
+      <h3>托管可用，权重未至</h3>
+      <p>已上线 Kimi.com、Kimi Work、Kimi Code、Kimi API 与 OpenRouter（moonshotai/kimi-k3）。HuggingFace moonshotai 组织尚无 K3——<strong>"开源模型"的说法要等 7 月 27 日权重落地才算数</strong>，届时才能验证 license 条款与社区量化生态。</p>
+    </div>
+  </div>
+</section>
+
+<div class="pager">
+  <a href="index.html">← 总览</a>
+  <a href="landscape.html">竞争格局 →</a>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>RP 01 · KIMI K3 · 调研于 2026-07-17</p>
+    <p><a href="../index.html">← 调研台</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
