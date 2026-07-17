@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ResearchPages · 调研台</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23191a1c'/%3E%3Ctext x='32' y='44' font-size='34' font-weight='700' font-family='-apple-system,PingFang SC,sans-serif' fill='%23e8b04b' text-anchor='middle'%3E%E7%A0%94%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Jerry 的深度调研系统：每一个文件夹是一份调研档案。联网扇出调研、逐条事实核验，产出一座可交互的专题站点。">
+<meta property="og:title" content="ResearchPages · 调研台">
+<meta property="og:description" content="每一个文件夹是一份调研档案。深研一个主题，就为它建一座经过事实核验的专题站点。">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --paper:#f4f2ec; --paper-deep:#eceade; --ink:#191a1c; --muted:#66625a;
+    --amber:#b07818; --amber-deep:#8a5c0e; --amber-wash:#f3e7cd;
+    --stamp:#a8342a; --slate:#32404e;
+    --line:#d9d4c7; --scan:rgba(25,26,28,.045);
+    --serif:"Songti SC","Noto Serif SC","STSong",serif;
+    --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --mono:"SF Mono",ui-monospace,"Menlo",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.8;
+    background-image:repeating-linear-gradient(0deg,transparent,transparent 30px,var(--scan) 30px,var(--scan) 31px);}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+  header{padding:80px 0 40px;border-bottom:3px double var(--ink);margin-bottom:56px}
+  .stamp-row{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.24em;color:var(--amber-deep);text-transform:uppercase}
+  .stamp{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--stamp);border:1.5px solid var(--stamp);
+    padding:2px 10px;transform:rotate(-2deg);text-transform:uppercase}
+  h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,64px);letter-spacing:.02em;line-height:1.2}
+  .lede{font-size:18px;color:var(--muted);max-width:660px;margin-top:20px}
+  .lede b{color:var(--amber-deep)}
+  .method{display:flex;gap:0;margin-top:28px;flex-wrap:wrap;border:1px solid var(--line);background:#fff;max-width:660px}
+  .method span{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted);padding:8px 14px;display:flex;align-items:center;gap:8px}
+  .method span+span{border-left:1px solid var(--line)}
+  .method b{color:var(--ink);font-weight:700}
+  .shelf-label{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--muted);margin-bottom:22px;display:flex;align-items:center;gap:12px}
+  .shelf-label::after{content:"";flex:1;height:1px;background:var(--line)}
+  .reports{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-bottom:64px}
+  .report{display:block;text-decoration:none;color:inherit;border:1.5px solid var(--ink);background:#fffdf8;
+    box-shadow:5px 5px 0 var(--amber-wash);transition:transform .15s ease,box-shadow .15s ease;position:relative}
+  .report:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--amber-wash)}
+  .report:focus-visible{outline:3px solid var(--stamp);outline-offset:3px}
+  .report .tab{position:absolute;top:-1.5px;right:18px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+    background:var(--ink);color:var(--paper);padding:3px 10px;text-transform:uppercase}
+  .report .spine{height:8px;background:linear-gradient(90deg,var(--amber),var(--amber-deep))}
+  .report .body{padding:24px}
+  .report .no{font-family:var(--mono);font-size:12px;letter-spacing:.15em;color:var(--amber-deep)}
+  .report h2{font-family:var(--serif);font-size:24px;font-weight:900;margin:8px 0 4px;line-height:1.3}
+  .report .scope{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:12px}
+  .report p{font-size:14.5px;color:#3c3a34;margin-bottom:16px}
+  .report .meta{display:flex;flex-wrap:wrap;gap:8px}
+  .report .chip{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:3px 9px;border:1px solid var(--line);color:var(--muted)}
+  .report .chip.on{background:var(--amber-deep);color:#fff;border-color:var(--amber-deep)}
+  .report .enter{margin-top:16px;font-weight:700;color:var(--amber-deep);font-size:14px}
+  .soon{border-style:dashed;box-shadow:none;opacity:.75;cursor:default;background:transparent}
+  .soon:hover{transform:none;box-shadow:none}
+  .soon .spine{background:var(--line)}
+  footer{border-top:3px double var(--ink);padding:32px 0 56px}
+  footer p,footer a{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-decoration:none}
+  footer a:hover{color:var(--amber-deep)}
+  .foot-row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="stamp-row">
+      <div class="eyebrow">RESEARCHPAGES · 一个人的调研系统</div>
+      <div class="stamp">Verified · 逐条核验</div>
+    </div>
+    <h1>调研台</h1>
+    <p class="lede">每一个文件夹是一份调研档案。每接到一个主题，就联网扇出深度调研，<b>关键结论逐条事实核验</b>，再整理成一座图文并茂、可交互的专题站点——读完能带走一份站得住的判断。</p>
+    <div class="method">
+      <span><b>A</b> 扇出调研</span>
+      <span><b>B</b> 事实核验</span>
+      <span><b>C</b> 建站成档</span>
+      <span><b>D</b> 上架归档</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="shelf-label">◾ AI 与技术 · AI &amp; TECHNOLOGY</div>
+  <div class="reports">
+
+    <div class="report soon">
+      <div class="spine"></div>
+      <div class="body">
+        <div class="no">RP ·· · 待立项</div>
+        <h2>下一份档案</h2>
+        <div class="scope">虚位以待</div>
+        <p>系统已就绪。发来一个主题（<span style="font-family:var(--mono)">/rp 某主题</span>），即开一份新调研：扇出搜集一手来源、逐条核验、建站上架。</p>
+        <div class="meta"><span class="chip">AWAITING BRIEF</span></div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>ResearchPages · 每一个文件夹是一份调研档案</p>
+    <p><a href="https://jerryai.cn">← jerryai.cn</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
