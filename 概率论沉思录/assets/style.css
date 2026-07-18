@@ -1,0 +1,145 @@
+/* RP 03 · 概率论沉思录 · 主题：靛蓝墨 + 朱砂批注 + 羊皮纸（学者手稿 / DOSSIER） */
+:root{
+  --paper:#f2ece0; --paper-deep:#e7dfcd; --ink:#221f1a; --muted:#5f5a4f;
+  --indigo:#2f3b63; --indigo-deep:#1c2340; --indigo-wash:#dee2ee;
+  --verm:#b23a2a; --verm-deep:#8c2c1f; --verm-wash:#f0ddd5;
+  --stamp:#8c2c1f; --ok:#2e6e4e; --brass:#9a7420;
+  --line:#d8d0be; --scan:rgba(47,59,99,.05);
+  --serif:"Songti SC","Noto Serif SC","STSong",serif;
+  --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --mono:"SF Mono",ui-monospace,"Menlo",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.85;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 30px,var(--scan) 30px,var(--scan) 31px);}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+/* ── 导航 ─────────────────────────── */
+.nav{position:sticky;top:0;z-index:50;background:var(--indigo-deep);border-bottom:2px solid var(--verm)}
+.nav-inner{max-width:1000px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.nav-brand{font-family:var(--serif);font-weight:900;font-size:17px;color:#f1efe6;text-decoration:none;padding:12px 0}
+.nav-brand .mk{color:var(--verm);font-family:var(--mono);font-weight:400}
+.nav-links{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto}
+.nav-links a{font-size:13.5px;color:#b9bdcc;text-decoration:none;padding:12px 11px;border-bottom:2px solid transparent;margin-bottom:-2px}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:#fff;border-bottom-color:var(--verm);font-weight:600}
+
+/* ── 头部 ─────────────────────────── */
+.hero{padding:64px 0 48px;border-bottom:3px double var(--ink);margin-bottom:56px;background:linear-gradient(180deg,var(--indigo-wash),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr}}
+.stamp-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--verm-deep);text-transform:uppercase}
+.stamp{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--stamp);border:1.5px solid var(--stamp);
+  padding:2px 10px;transform:rotate(-2deg);text-transform:uppercase;white-space:nowrap}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4.6vw,50px);line-height:1.25;letter-spacing:.01em}
+.lede{font-size:17px;color:#3c3930;margin-top:18px}
+.lede strong{color:var(--indigo)}
+blockquote{border-left:3px solid var(--verm);padding:6px 0 6px 18px;color:#413e35;font-family:var(--serif);font-size:15.5px}
+blockquote cite{display:block;margin-top:8px;font-family:var(--mono);font-size:11px;font-style:normal;letter-spacing:.1em;color:var(--muted)}
+
+/* ── 章节 ─────────────────────────── */
+section{margin-bottom:72px}
+h2{font-family:var(--serif);font-weight:900;font-size:clamp(24px,3.2vw,32px);margin:10px 0 22px;line-height:1.35}
+h3{font-family:var(--serif);font-weight:700;font-size:19px;margin-bottom:8px;line-height:1.4}
+p{font-size:15.5px}
+p+p{margin-top:12px}
+.lead-p{font-size:16.5px;color:#3c3930;max-width:760px}
+.grid{display:grid;gap:20px}
+.cols-2{grid-template-columns:repeat(2,1fr)}
+.cols-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.cols-2,.cols-3{grid-template-columns:1fr}}
+.card{border:1.5px solid var(--ink);background:#fdfbf5;padding:22px;box-shadow:4px 4px 0 var(--indigo-wash)}
+.card p{font-size:14.5px;color:#3a3830}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:2px 9px;margin-bottom:10px;
+  background:var(--indigo);color:#fff;text-transform:uppercase}
+.tag.gold{background:var(--brass)}
+.tag.red{background:var(--verm)}
+.tag.green{background:var(--ok)}
+.tag.hollow{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+/* ── 公式/命题条 ─────────────────────────── */
+.axiom{border:1.5px solid var(--indigo);background:#fdfbf5;padding:16px 20px;margin:18px 0;box-shadow:4px 4px 0 var(--indigo-wash);
+  font-family:var(--serif);font-size:16px}
+.axiom .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--verm-deep);text-transform:uppercase;display:block;margin-bottom:6px}
+.axiom .eq{font-family:"Latin Modern Math","Cambria Math",Georgia,serif;font-style:italic;font-size:18px;color:var(--indigo-deep)}
+
+/* ── 图表 ─────────────────────────── */
+.figure{border:1.5px solid var(--ink);background:#fdfbf5;padding:20px;margin:26px 0;box-shadow:4px 4px 0 var(--verm-wash)}
+.figure svg{display:block;width:100%;height:auto}
+.figcap{font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:14px;padding-top:12px}
+.figcap b{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--verm-deep)}
+
+/* ── 数据表 ─────────────────────────── */
+.tbl-scroll{overflow-x:auto;border:1.5px solid var(--ink);background:#fdfbf5;box-shadow:4px 4px 0 var(--indigo-wash);margin:22px 0}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;text-align:left;
+  background:var(--indigo-deep);color:#e8e6dd;padding:10px 14px;white-space:nowrap}
+td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+tr.hl td{background:var(--verm-wash)}
+td.num{font-family:var(--mono);font-size:13px;white-space:nowrap}
+td .sub{display:block;font-size:12px;color:var(--muted)}
+
+/* ── 关键数字 ─────────────────────────── */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:24px 0}
+.stat{border:1.5px solid var(--ink);background:#fdfbf5;padding:18px 18px 14px;box-shadow:4px 4px 0 var(--verm-wash)}
+.stat .v{font-family:var(--serif);font-weight:900;font-size:30px;color:var(--indigo);line-height:1.1}
+.stat .v small{font-size:16px}
+.stat .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);margin-top:6px;text-transform:uppercase}
+
+/* ── 时间线 ─────────────────────────── */
+.tl{list-style:none;border-left:2px solid var(--indigo);margin:8px 0 8px 6px;padding-left:26px}
+.tl li{position:relative;padding-bottom:26px}
+.tl li::before{content:"";position:absolute;left:-32.5px;top:9px;width:11px;height:11px;background:var(--paper);
+  border:2.5px solid var(--indigo);border-radius:50%}
+.tl li.gold::before{border-color:var(--brass);background:var(--verm-wash)}
+.tl li.red::before{border-color:var(--stamp)}
+.tl .d{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--verm-deep)}
+.tl h3{margin:2px 0 4px}
+.tl p{font-size:14.5px;color:#3a3830}
+
+/* ── 观点对照（正反方 / 争议） ─────────────────────────── */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:820px){.vs{grid-template-columns:1fr}}
+.vs .side{border:1.5px solid var(--ink);background:#fdfbf5;padding:22px}
+.vs .side.pro{box-shadow:4px 4px 0 #dbe2ef;border-top:6px solid var(--indigo)}
+.vs .side.con{box-shadow:4px 4px 0 #f0dcd5;border-top:6px solid var(--verm)}
+.vs .side h3{display:flex;align-items:center;gap:10px}
+.vs .side ul{margin:10px 0 0 18px}
+.vs .side li{font-size:14.5px;color:#3a3830;margin-bottom:10px}
+
+/* ── 争议卡（批评→回应） ─────────────────────────── */
+.myth{border:1.5px solid var(--ink);background:#fdfbf5;box-shadow:4px 4px 0 var(--indigo-wash);margin-bottom:22px}
+.myth .claim{padding:16px 20px;border-bottom:1px dashed var(--line);display:flex;gap:12px;align-items:flex-start}
+.myth .claim .q{font-family:var(--serif);font-weight:900;font-size:18px;line-height:1.4}
+.myth .verdict{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:3px 9px;white-space:nowrap;align-self:flex-start;text-transform:uppercase}
+.myth .verdict.no{background:var(--verm);color:#fff}
+.myth .verdict.ok{background:var(--ok);color:#fff}
+.myth .verdict.half{background:var(--brass);color:#fff}
+.myth .fact{padding:16px 20px}
+.myth .fact p{font-size:14.5px;color:#3a3830}
+.myth .fact b{color:var(--indigo)}
+
+/* ── 存疑/核验标注 ─────────────────────────── */
+.verify{font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:1px 7px;vertical-align:2px;white-space:nowrap}
+.verify.ok{color:var(--ok);border:1px solid var(--ok)}
+.verify.warn{color:var(--brass);border:1px solid var(--brass)}
+.verify.no{color:var(--stamp);border:1px solid var(--stamp)}
+
+/* ── 来源列表 ─────────────────────────── */
+.src{border:1px solid var(--line);background:#fdfbf5;padding:16px 18px;margin-bottom:12px}
+.src .t{font-weight:700;font-size:15px}
+.src a{color:var(--indigo);text-decoration:underline;text-decoration-color:var(--verm);word-break:break-all;font-size:13.5px}
+.src .m{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:4px}
+.src-group{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--verm-deep);text-transform:uppercase;margin:32px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+
+/* ── 页脚 ─────────────────────────── */
+.pager{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:24px;margin-top:56px;flex-wrap:wrap}
+.pager a{font-weight:700;color:var(--indigo);text-decoration:none;font-size:14.5px}
+.pager a:hover{color:var(--verm-deep)}
+footer{border-top:3px double var(--ink);padding:30px 0 52px;margin-top:80px}
+footer p,footer a{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-decoration:none}
+footer a:hover{color:var(--verm-deep)}
+.foot-row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+a.inline{color:var(--indigo);text-decoration:underline;text-decoration-color:var(--verm)}

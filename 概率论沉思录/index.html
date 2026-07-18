@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>概率论沉思录 · 深度调研总览</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c2340'/%3E%3Ctext x='32' y='45' font-size='30' font-weight='700' font-family='Georgia,serif' fill='%23b23a2a' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<meta name="description" content="《概率论沉思录》(E.T. Jaynes) 深度调研：把概率论重写为广义逻辑的雄心之书。核心思想、作者与成书、学术争议、阅读指南五页联动，关键引证逐条核验。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">概率论沉思录<span class="mk"> · </span>RP 03</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">总览</a>
+      <a href="thesis.html">核心思想</a>
+      <a href="author.html">作者与成书</a>
+      <a href="debate.html">争议与批评</a>
+      <a href="reading.html">阅读指南</a>
+      <a href="sources.html">来源</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="stamp-row">
+        <div class="eyebrow">RP 03 · E.T. JAYNES · 1922–1998 · 遗著 2003</div>
+        <div class="stamp">Verified · 逐条核验</div>
+      </div>
+      <h1>把概率论，<br>重写成"逻辑"</h1>
+      <p class="lede">大多数人以为概率是"随机性的度量"。E.T. Jaynes 用七百多页论证了一个截然不同的立场：<strong>概率是理性在信息不完备时进行推理的唯一自洽延伸——它是逻辑的推广，而非频率的统计</strong>。这本书是客观贝叶斯学派的集大成宣言，也是一部作者没能写完、却仍被奉为经典的遗著。</p>
+      <blockquote style="margin-top:26px">
+        本报告的一句话判断：它思想极具启发、行文极具个性，但地基（Cox 定理）后来被证明不够严谨、对频率派的论战偏激、且是残稿。把它当"重塑直觉的经典"读，而非"无懈可击的教科书"。
+        <cite>核心结论 · 四路调研 + 关键引证逐条核验</cite>
+      </blockquote>
+    </div>
+    <div class="figure" style="margin:0">
+      <svg viewBox="0 0 520 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="概率作为广义逻辑的公理链：三条合意条件（实数表示、符合常识、一致性）经 Cox 定理推出概率的积规则与和规则，再导出贝叶斯定理。">
+        <rect x="8" y="8" width="504" height="454" fill="none" stroke="#221f1a" stroke-width="1.5"/>
+        <text x="260" y="38" font-family="Songti SC,serif" font-size="17" font-weight="900" fill="#221f1a" text-anchor="middle">概率 = 广义逻辑</text>
+        <text x="260" y="57" font-family="SF Mono,Menlo,monospace" font-size="9" letter-spacing="1.5" fill="#5f5a4f" text-anchor="middle">FROM DESIDERATA TO PROBABILITY · 一条推理链</text>
+
+        <!-- 三条合意条件 -->
+        <text x="260" y="84" font-family="SF Mono,Menlo,monospace" font-size="9.5" letter-spacing="1.5" fill="#8c2c1f" text-anchor="middle">三条合意条件 · DESIDERATA</text>
+        <g font-family="Songti SC,serif">
+          <rect x="26" y="94" width="148" height="58" fill="#fdfbf5" stroke="#2f3b63" stroke-width="1.4"/>
+          <rect x="186" y="94" width="148" height="58" fill="#fdfbf5" stroke="#2f3b63" stroke-width="1.4"/>
+          <rect x="346" y="94" width="148" height="58" fill="#fdfbf5" stroke="#2f3b63" stroke-width="1.4"/>
+          <text x="100" y="117" font-size="13.5" font-weight="900" fill="#1c2340" text-anchor="middle">Ⅰ 用实数表示</text>
+          <text x="100" y="138" font-size="10.5" fill="#3a3830" text-anchor="middle">合理度是一个数</text>
+          <text x="260" y="117" font-size="13.5" font-weight="900" fill="#1c2340" text-anchor="middle">Ⅱ 合乎常识</text>
+          <text x="260" y="138" font-size="10.5" fill="#3a3830" text-anchor="middle">定性符合直觉</text>
+          <text x="420" y="117" font-size="13.5" font-weight="900" fill="#1c2340" text-anchor="middle">Ⅲ 一致性</text>
+          <text x="420" y="138" font-size="10.5" fill="#3a3830" text-anchor="middle">同样信息→同一值</text>
+        </g>
+        <!-- 汇聚箭头 -->
+        <path d="M100 152 L100 172 L260 172 M260 152 L260 190 M420 152 L420 172 L260 172" fill="none" stroke="#8c2c1f" stroke-width="1.3"/>
+        <path d="M256 188 l4 8 l4 -8 z" fill="#8c2c1f"/>
+
+        <!-- Cox 定理 -->
+        <rect x="150" y="196" width="220" height="46" fill="#1c2340" stroke="#1c2340"/>
+        <text x="260" y="217" font-family="Songti SC,serif" font-size="15" font-weight="900" fill="#f1efe6" text-anchor="middle">Cox 定理（1946）</text>
+        <text x="260" y="234" font-family="SF Mono,Menlo,monospace" font-size="9" fill="#c9a9a0" text-anchor="middle">唯一自洽的定量表示</text>
+        <path d="M260 242 L260 262" fill="none" stroke="#8c2c1f" stroke-width="1.3"/>
+        <path d="M256 260 l4 8 l4 -8 z" fill="#8c2c1f"/>
+
+        <!-- 两大规则 -->
+        <text x="260" y="284" font-family="SF Mono,Menlo,monospace" font-size="9.5" letter-spacing="1.5" fill="#8c2c1f" text-anchor="middle">推出概率两大规则</text>
+        <g>
+          <rect x="40" y="294" width="200" height="62" fill="#fdfbf5" stroke="#2f3b63" stroke-width="1.4"/>
+          <rect x="280" y="294" width="200" height="62" fill="#fdfbf5" stroke="#2f3b63" stroke-width="1.4"/>
+          <text x="140" y="315" font-family="Songti SC,serif" font-size="12.5" font-weight="900" fill="#1c2340" text-anchor="middle">积规则 Product</text>
+          <text x="140" y="340" font-family="Georgia,serif" font-style="italic" font-size="13.5" fill="#2f3b63" text-anchor="middle">P(AB|C)=P(A|BC)P(B|C)</text>
+          <text x="380" y="315" font-family="Songti SC,serif" font-size="12.5" font-weight="900" fill="#1c2340" text-anchor="middle">和规则 Sum</text>
+          <text x="380" y="340" font-family="Georgia,serif" font-style="italic" font-size="13.5" fill="#2f3b63" text-anchor="middle">P(A|B)+P(Ā|B)=1</text>
+        </g>
+        <path d="M140 356 L140 376 L260 376 M380 356 L380 376 L260 376 M260 376 L260 392" fill="none" stroke="#8c2c1f" stroke-width="1.3"/>
+        <path d="M256 390 l4 8 l4 -8 z" fill="#8c2c1f"/>
+
+        <!-- 贝叶斯定理 -->
+        <rect x="120" y="398" width="280" height="52" fill="#b23a2a" stroke="#8c2c1f" stroke-width="1.2"/>
+        <text x="260" y="419" font-family="Songti SC,serif" font-size="14" font-weight="900" fill="#fff" text-anchor="middle">贝叶斯定理 = 学习的引擎</text>
+        <text x="260" y="438" font-family="Georgia,serif" font-style="italic" font-size="12.5" fill="#f6e2dc" text-anchor="middle">P(H|DX) = P(H|X)·P(D|HX) / P(D|X)</text>
+      </svg>
+      <div class="figcap"><b>FIG. 0</b> 全书的逻辑主轴：从三条"合意条件"出发，经 Cox 定理证明"概率是似真推理唯一自洽的定量延伸"，再导出概率的积规则、和规则，最终把贝叶斯定理确立为一切"学习/推理"的核心机制。这条链是本书的雄心，也是争议的焦点（Cox 定理原始证明后被指不够严谨）。</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <div class="eyebrow">KEY FINDINGS · 核心发现</div>
+  <h2>五条带走的结论</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="tag">01 · 立场</div>
+      <h3>概率是逻辑，不是频率</h3>
+      <p>Jaynes 把概率定义为对命题"合理置信度"的度量，是形式逻辑在不确定性下的延伸。在他看来，贝叶斯与频率派方法都只是这套广义逻辑的特例——而频率派是其中最受限的一种。→ <a class="inline" href="thesis.html">核心思想</a></p>
+    </div>
+    <div class="card">
+      <div class="tag red">02 · 地基</div>
+      <h3>用 Cox 定理给概率"立宪"</h3>
+      <p>全书第 2 章借 R.T. Cox（1946）的思路，从三条一致性"合意条件"推出概率的积规则与和规则，论证这是唯一自洽的定量推理体系。这条公理链是本书最漂亮、也最受攻击的部分。→ <a class="inline" href="debate.html">争议与批评</a></p>
+    </div>
+    <div class="card">
+      <div class="tag gold">03 · 工具</div>
+      <h3>最大熵：无知也能被形式化</h3>
+      <p>基于他 1957 年两篇《Physical Review》论文，Jaynes 用最大熵原理把"在已知约束下最不带偏见的分布"作为先验分配方法，并借此把统计力学重释为一种统计推断。→ <a class="inline" href="thesis.html">核心思想</a></p>
+    </div>
+    <div class="card">
+      <div class="tag">04 · 遗著</div>
+      <h3>作者没写完的一部书</h3>
+      <p>Jaynes 1998 年去世时手稿未竟，由学生 G. Larry Bretthorst 整理，2003 年剑桥出版，保留大量"编者提问框"填补空缺。前半部推理基础极精彩，后半部应用章节明显未打磨。→ <a class="inline" href="author.html">作者与成书</a></p>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <div class="tag red">05 · 定性</div>
+      <h3>经典，但有裂缝的经典</h3>
+      <p>它的地基有技术漏洞（Cox 定理原始证明被 Halpern 1999 用反例指出不严谨，需 Van Horn 2003 等重构补救）；它的"无信息先验"至今非学界共识；它对费歇尔等频率派的措辞被公认过于论战。但它同时被 AMS《Mathematical Reviews》评为"不只是推荐、而应被规定为必读"，被 MacKay 列入推荐阅读——<strong>启发性与争议性同样巨大</strong>。这正是它值得深读的理由。→ <a class="inline" href="debate.html">争议与批评</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">WHY IT MATTERS · 为什么值得深研</div>
+  <h2>三个读它的理由</h2>
+  <div class="grid cols-3">
+    <div class="card">
+      <div class="tag">思想坐标</div>
+      <h3>贝叶斯复兴的宣言书</h3>
+      <p>在频率派统治统计学的年代，它高举"概率即逻辑"的旗帜，是客观贝叶斯学派的集大成之作，深刻影响了机器学习、信号处理与物理推断。</p>
+    </div>
+    <div class="card">
+      <div class="tag gold">思维训练</div>
+      <h3>一堂"如何推理"的课</h3>
+      <p>抛开数学，它真正教的是一种思维纪律：把不确定性当作知识状态而非世界属性。"心智投射谬误"这一概念，至今是理性思考的常用工具。</p>
+    </div>
+    <div class="card">
+      <div class="tag red">批判样本</div>
+      <h3>如何读一本"有立场"的书</h3>
+      <p>它是练习"带着敬意质疑经典"的绝佳文本：既能领受它的洞见，又能看清它的漏洞与偏激——这本身就是它想教你的贝叶斯态度。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">METHOD · 本报告怎么来的</div>
+  <h2>调研方法与可信度声明</h2>
+  <p>本站于 <strong>2026 年 7 月 18 日</strong>完成：4 路并行联网调研（核心思想 / 作者成书 / 争议批评 / 影响与阅读），中英文来源交叉；拟写入的关键书目与引证交独立事实核验流程<strong>证伪式核查</strong>并逐一订正——例如题献原文须含句首"Dedicated"、Halpern 反例期刊版为 1999 年（非 1996）、中译本丛书名为"图灵新知/图灵数学经典"、页数以书评的 727 页为准（Amazon 753 存疑）。凡单一来源或未能一手复核者（如"沉思录"译名典故、MacKay 荐语确切措辞、引用总数）在正文中以 <span class="verify warn">标注</span> 显式标出，宁可少一个论点，不放一个错误。全部引用见<a class="inline" href="sources.html">来源页</a>。</p>
+  <div class="stats">
+    <div class="stat"><div class="v">727<small>页</small></div><div class="k">xxix + 727 · 剑桥 2003</div></div>
+    <div class="stat"><div class="v">1957</div><div class="k">最大熵奠基之年</div></div>
+    <div class="stat"><div class="v">9.1</div><div class="k">中译本豆瓣分（2026-07）</div></div>
+    <div class="stat"><div class="v">4.41</div><div class="k">英文版 Goodreads（668 评）</div></div>
+  </div>
+</section>
+
+<div class="pager">
+  <a href="../index.html">← 调研台</a>
+  <a href="thesis.html">核心思想 →</a>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>RP 03 · 概率论沉思录 · 调研于 2026-07-18</p>
+    <p><a href="../index.html">← 调研台</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>核心思想 · 概率论沉思录</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c2340'/%3E%3Ctext x='32' y='45' font-size='30' font-weight='700' font-family='Georgia,serif' fill='%23b23a2a' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<meta name="description" content="《概率论沉思录》核心思想：概率作为广义逻辑、Cox定理、最大熵原理、心智投射谬误，以及对正统频率派统计学的系统批判。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">概率论沉思录<span class="mk"> · </span>RP 03</a>
+    <div class="nav-links">
+      <a href="index.html">总览</a>
+      <a href="thesis.html" class="active">核心思想</a>
+      <a href="author.html">作者与成书</a>
+      <a href="debate.html">争议与批评</a>
+      <a href="reading.html">阅读指南</a>
+      <a href="sources.html">来源</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" style="padding-top:48px">
+
+<div class="stamp-row">
+  <div class="eyebrow">RP 03 · 核心思想</div>
+  <div class="stamp">概率即逻辑</div>
+</div>
+<h1 style="font-size:clamp(30px,4.4vw,46px)">四个观念，<br>撑起整本书的雄心</h1>
+<p class="lead-p" style="margin-top:18px">这本书不是又一本概率教材。它想做的是一件更根本的事：论证<strong>概率论就是逻辑本身</strong>——当信息充分时它退化为演绎逻辑，当信息不足时（几乎所有真实问题）它给出合理推理的唯一自洽规则。理解四个核心观念，就抓住了全书。</p>
+
+<section style="margin-top:44px">
+  <div class="eyebrow">THESIS 1 · 概率作为广义逻辑</div>
+  <h2>把"合理置信度"变成一个数</h2>
+  <p class="lead-p">Jaynes 在序言里给推理下了定义：信息充分时是演绎，信息不足时是"合理推理(plausible reasoning)"。他要做的，就是把亚里士多德的演绎逻辑<strong>扩展</strong>成能处理不确定性的规则体系。概率 P(A|B) 读作"在已知 B 的条件下，命题 A 为真的合理程度"——它是<strong>关于知识状态的度量，而非世界固有的随机性</strong>。</p>
+  <div class="axiom">
+    <span class="k">全书立场 · 一句话</span>
+    严格来说，作为广义逻辑的概率论既<strong>包含</strong>贝叶斯方法、也包含频率派方法，还包含二者都无法容纳的概念（如最大熵）。频率派只是这套逻辑里最受限的特例。
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">THESIS 2 · Cox 定理</div>
+  <h2>为什么概率规则"只能是这样"</h2>
+  <p class="lead-p">这是全书的地基。Jaynes 采用 R.T. Cox（1946，《American Journal of Physics》）的思路：只要求合理度满足三条"合意条件"(desiderata)，就能<strong>唯一地</strong>推出概率的两条运算规则——不是人为假设，而是逻辑一致性的必然结果。</p>
+  <div class="grid cols-3" style="margin:8px 0 20px">
+    <div class="card"><div class="tag">合意条件 Ⅰ</div><h3>用实数表示</h3><p>合理度可以用一个实数来度量、并可比较大小。</p></div>
+    <div class="card"><div class="tag">合意条件 Ⅱ</div><h3>合乎常识</h3><p>合理度的变化须定性地符合人的常识直觉。</p></div>
+    <div class="card"><div class="tag">合意条件 Ⅲ</div><h3>一致性</h3><p>拥有相同信息的人，必须赋予相同的合理度。</p></div>
+  </div>
+  <div class="axiom"><span class="k">积规则 · Product Rule</span><span class="eq">P(AB|C) = P(A|BC) · P(B|C)</span></div>
+  <div class="axiom"><span class="k">和规则 · Sum Rule</span><span class="eq">P(A|B) + P(Ā|B) = 1</span></div>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:10px">由这两条规则可直接导出贝叶斯定理，成为"学习/更新信念"的核心引擎。<span class="verify warn">注：Cox 1946 的原始证明后来被 Halpern（1999）指出含隐含假设、存在反例，需 Van Horn（2003）等重构才严格成立——见<a class="inline" href="debate.html">争议与批评</a></span></p>
+</section>
+
+<section>
+  <div class="eyebrow">THESIS 3 · 最大熵原理</div>
+  <h2>如何给"无知"分配概率</h2>
+  <p class="lead-p">贝叶斯推理需要先验，但先验从哪来？Jaynes 的答案是<strong>最大熵原理(MaxEnt)</strong>：在满足已知约束的所有分布中，选择熵最大、即"最不带偏见(maximally noncommittal)"的那一个。它把"我只知道这些，别的一无所知"这句话，翻译成了一个确定的概率分布。</p>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="tag gold">来源</div>
+      <h3>1957 年两篇奠基论文</h3>
+      <p>Jaynes 1957 年在《Physical Review》发表《Information Theory and Statistical Mechanics》(I &amp; II)，论证 Gibbs/Boltzmann 熵与 Shannon 信息熵源于同一逻辑，把统计力学重释为<strong>统计推断</strong>而非物理定律。</p>
+    </div>
+    <div class="card">
+      <div class="tag">在书中的角色</div>
+      <h3>先验分配的系统方法</h3>
+      <p>MaxEnt 与"变换群原理"一起，被用作客观地指派先验概率的工具，试图绕开"先验太主观"的指责。它是本书区别于一般贝叶斯教材的独特贡献。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">THESIS 4 · 心智投射谬误</div>
+  <h2>别把"我不知道"当成"世界是随机的"</h2>
+  <p class="lead-p">这是 Jaynes 留给一般读者最有用的思想工具（术语出自其 1988/1989 年的论文《Clearing Up Mysteries》）。</p>
+  <div class="axiom">
+    <span class="k">Mind Projection Fallacy · 定义</span>
+    把<strong>认识论</strong>的陈述（关于"我"的知识、信念、不确定性）误当成<strong>本体论</strong>的陈述（关于"世界本身"的客观属性）——即把"我们对某事的无知"错误地投射为"该事物固有的随机性"。
+  </div>
+  <p style="margin-top:8px">Jaynes 用它批评一种普遍错误：把概率（一个认识论工具）当成物理系统内在的"随机性"。这个概念后来在量子力学诠释、概率哲学乃至理性主义社区（如 LessWrong）被反复引用。它提醒我们：<strong>"随机"往往只是"我们还不知道"的另一种说法</strong>。</p>
+</section>
+
+<section>
+  <div class="eyebrow">THE POLEMIC · 贯穿全书的批判</div>
+  <h2>对"正统统计学"的宣战</h2>
+  <p class="lead-p">全书像一张双线织锦：一条是正面阐述 Jaynes 版贝叶斯概率论，另一条是对频率派("orthodox statistics")的持续批判。他认为频率派用一堆<strong>临时性的 ad hoc 手段</strong>，去武断地完成概率论规则本可唯一且最优完成的事。</p>
+  <div class="vs">
+    <div class="side pro">
+      <h3>🔵 Jaynes 的贝叶斯</h3>
+      <ul>
+        <li>概率 = 对任意命题的合理置信度</li>
+        <li>严格遵循两条规则，避免人为悖论</li>
+        <li>能处理"先验 + 数据"的完整推理</li>
+        <li>频率派是它的一个特例</li>
+      </ul>
+    </div>
+    <div class="side con">
+      <h3>🔴 他眼中的频率派</h3>
+      <ul>
+        <li>只处理"抽样分布"这类正向概率问题</li>
+        <li>其预设条件在真实问题中几乎从不成立</li>
+        <li>靠 ad hoc 手段拼凑、制造人为悖论</li>
+        <li>是概率合法用法中"最受限的特例"</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:12px">这套批判极具启发，但其措辞被多篇书评认为过于尖刻、片面（如把 Fisher 塑造成"反派"）。当代主流统计学已趋向务实融合，不再是非此即彼的阵营对抗——详见<a class="inline" href="debate.html">争议与批评</a>。</p>
+</section>
+
+<div class="pager">
+  <a href="index.html">← 总览</a>
+  <a href="author.html">作者与成书 →</a>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>RP 03 · 概率论沉思录 · 核心思想</p>
+    <p><a href="sources.html">来源与核验 →</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

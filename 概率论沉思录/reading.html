@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阅读指南 · 概率论沉思录</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c2340'/%3E%3Ctext x='32' y='45' font-size='30' font-weight='700' font-family='Georgia,serif' fill='%23b23a2a' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<meta name="description" content="《概率论沉思录》阅读指南：前置知识、章节地图（哪些必读哪些可跳）、难读的原因、免费PDF与勘误等配套资源、中译本读者反馈、适合谁读。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">概率论沉思录<span class="mk"> · </span>RP 03</a>
+    <div class="nav-links">
+      <a href="index.html">总览</a>
+      <a href="thesis.html">核心思想</a>
+      <a href="author.html">作者与成书</a>
+      <a href="debate.html">争议与批评</a>
+      <a href="reading.html" class="active">阅读指南</a>
+      <a href="sources.html">来源</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" style="padding-top:48px">
+
+<div class="stamp-row">
+  <div class="eyebrow">RP 03 · 阅读指南</div>
+  <div class="stamp">难，但值得</div>
+</div>
+<h1 style="font-size:clamp(30px,4.4vw,46px)">怎么读这本<br>七百页的大书</h1>
+<p class="lead-p" style="margin-top:18px">这是一本公认"难读但值得"的书——英文版 Goodreads 4.41、中译本豆瓣 9.1，评价都很高，但读者也普遍反映它篇幅巨大、行文跳跃、含未完成章节。好消息是：<strong>它的精华高度集中在前半部，且并不要求你先精通概率统计</strong>。这一页告诉你怎么进、从哪读、在哪停。</p>
+
+<section style="margin-top:44px">
+  <div class="eyebrow">PREREQUISITES · 前置知识</div>
+  <h2>需要什么基础（可能和你想的相反）</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="tag green">需要</div>
+      <h3>数学成熟度 + 一点物理直觉</h3>
+      <p>Jaynes 在前言中说，本书面向"已熟悉高等本科或更高水平应用数学"、并在某一领域（物理/工程/生物/经济等）有背景的读者。微积分、泰勒展开是趁手工具，有物理直觉更佳。</p>
+    </div>
+    <div class="card">
+      <div class="tag hollow">不必需（甚至更好）</div>
+      <h3>先学过概率统计</h3>
+      <p>Jaynes 原话：先前学过概率统计<strong>并非必需</strong>，"某种程度的'无知'反而可取，因为需要'忘掉'的东西更少"。他要你从他的公理重新长出概率观，而非套用频率派习惯。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">CHAPTER MAP · 章节地图</div>
+  <h2>哪些必读，哪些可跳</h2>
+  <p class="lead-p">精华集中在前半部；后半"应用"章节正是作者未及打磨的部分，可按兴趣选读。</p>
+  <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>章</th><th>标题</th><th>建议</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td class="num">1</td><td>Plausible reasoning（合理推理）</td><td><b>核心必读</b> · 全书出发点</td></tr>
+        <tr class="hl"><td class="num">2</td><td>The quantitative rules（定量规则）</td><td><b>核心必读</b> · Cox 定理推导</td></tr>
+        <tr><td class="num">3–4</td><td>基础抽样理论 / 基础假设检验</td><td>必读</td></tr>
+        <tr><td class="num">5</td><td>Queer uses for probability theory</td><td>可选 · 趣味案例</td></tr>
+        <tr><td class="num">6–7</td><td>参数估计 / 正态分布</td><td>重要</td></tr>
+        <tr><td class="num">8–10</td><td>充分性 / 概率与频率 / "随机实验"物理</td><td>进阶</td></tr>
+        <tr class="hl"><td class="num">11</td><td>熵原理（离散先验）</td><td><b>核心必读</b> · 最大熵引入</td></tr>
+        <tr><td class="num">12</td><td>无信息先验与变换群</td><td>进阶必读</td></tr>
+        <tr><td class="num">13–21</td><td>决策/悖论/正统方法批判/模型比较等</td><td>选读 · 完成度参差</td></tr>
+        <tr><td class="num">22+</td><td>通信理论等应用（原计划"卷二"）</td><td>多为未完成章节 · 可跳过</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:10px">多位读者共识：<strong>前 5 章"极佳(magnificent)"，越往后越"未打磨"</strong>。原书还存在笔误与个别数学错误，需对照勘误阅读。</p>
+</section>
+
+<section>
+  <div class="eyebrow">WHY HARD · 难在哪</div>
+  <h2>为什么它难读</h2>
+  <div class="grid cols-3">
+    <div class="card"><div class="tag red">残稿</div><h3>作者没写完</h3><p>整章缺失、部分章节只有片段，出版方选择"缺就让它缺"，不代写。后半部因此不连贯。</p></div>
+    <div class="card"><div class="tag">论战</div><h3>夹叙夹议</h3><p>正面阐述里不断穿插对频率派的论战，节奏跳跃，非线性教学设计。</p></div>
+    <div class="card"><div class="tag gold">篇幅</div><h3>700+ 页、跨多领域</h3><p>从推理基础到统计力学到通信理论，跨度极大。有读者称"逐条推导花了一年"。</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">RESOURCES · 配套资源</div>
+  <h2>免费全文与勘误</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="tag">免费 PDF</div>
+      <h3>官方与镜像全文</h3>
+      <p>作者主页 <strong>bayes.wustl.edu/etj/prob/book.pdf</strong> 长期托管全书 PDF；Internet Archive 亦有完整扫描版。正式出版前它就靠这些渠道流传。</p>
+    </div>
+    <div class="card">
+      <div class="tag gold">勘误 Errata</div>
+      <h3>Van Horn 勘误站</h3>
+      <p>K.S. Van Horn 长期维护的非官方勘误网站 <strong>ksvanhorn.com/bayes/jaynes/</strong>，覆盖全书各章，收录 Dawid、Yudkowsky 等人的补充，读原书时强烈建议对照。</p>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:10px">中文读者另有译者维护的补充材料仓库（GitHub：HairenLiao/jaynes-probability-cn）。<span class="verify warn">译者维护、未三角验证，供参考</span></p>
+</section>
+
+<section>
+  <div class="eyebrow">READER FEEDBACK · 读者反馈</div>
+  <h2>谁该读、谁先别急</h2>
+  <div class="vs">
+    <div class="side pro">
+      <h3>✅ 适合</h3>
+      <ul>
+        <li>有数理基础、想理解贝叶斯<b>哲学根基</b>的人</li>
+        <li>物理/工程/统计/ML 的研究生与从业者</li>
+        <li>喜欢"重塑直觉"而非"查公式"的读者</li>
+      </ul>
+    </div>
+    <div class="side con">
+      <h3>⛔ 先别把它当第一本</h3>
+      <ul>
+        <li>零基础、想要循序渐进<b>教材</b>的初学者</li>
+        <li>建议路径：先经典统计入门 → 现代贝叶斯入门（如 Kruschke）→ 再啃 Jaynes</li>
+        <li>想要"无错、可速查"手册的人（它笔误多、后半残缺）</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:12px">中译本豆瓣短评概括它"既是数学书，也是哲学书，还是生活智慧书"；翻译质量评价两极——有读者赞译者功底扎实，也有读者指出存在需勘误处。<span class="verify warn">翻译质量评价不一，属主观</span></p>
+</section>
+
+<div class="pager">
+  <a href="debate.html">← 争议与批评</a>
+  <a href="sources.html">来源与核验 →</a>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>RP 03 · 概率论沉思录 · 阅读指南</p>
+    <p><a href="sources.html">来源与核验 →</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

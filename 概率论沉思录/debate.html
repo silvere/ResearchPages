@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>争议与批评 · 概率论沉思录</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c2340'/%3E%3Ctext x='32' y='45' font-size='30' font-weight='700' font-family='Georgia,serif' fill='%23b23a2a' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<meta name="description" content="《概率论沉思录》的争议与批评：Cox定理证明的技术漏洞（Halpern 反例）、边缘化悖论、无信息先验之争、论战风格，以及贝叶斯vs频率派之争的当代现状。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">概率论沉思录<span class="mk"> · </span>RP 03</a>
+    <div class="nav-links">
+      <a href="index.html">总览</a>
+      <a href="thesis.html">核心思想</a>
+      <a href="author.html">作者与成书</a>
+      <a href="debate.html" class="active">争议与批评</a>
+      <a href="reading.html">阅读指南</a>
+      <a href="sources.html">来源</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" style="padding-top:48px">
+
+<div class="stamp-row">
+  <div class="eyebrow">RP 03 · 争议与批评</div>
+  <div class="stamp">带敬意地质疑</div>
+</div>
+<h1 style="font-size:clamp(30px,4.4vw,46px)">经典之上，<br>有几道真实的裂缝</h1>
+<p class="lead-p" style="margin-top:18px">推崇这本书，不等于把它当作没有破绽。恰恰相反——本书教你的贝叶斯态度，正要求我们既领受它的洞见、也看清它的漏洞。下面区分两类：一类是<strong>严肃的技术批评</strong>（触及地基），一类是<strong>风格之争</strong>（不改变其价值）。</p>
+
+<section style="margin-top:40px">
+  <div class="eyebrow">TECHNICAL · 触及地基的技术批评</div>
+  <h2>三处严肃的学术质疑</h2>
+
+  <div class="myth">
+    <div class="claim"><div class="q">① Cox 定理的原始证明并不严谨</div><div class="verdict half">技术漏洞属实</div></div>
+    <div class="fact"><p><b>批评：</b>Jaynes 全书地基是 Cox（1946）——但 Joseph Halpern <b>1999 年</b>在《JAIR》(Vol.10) 构造反例，证明 Cox 定理在<b>有限论域</b>下不成立，其原始证明隐含了未言明的正则性/可微性假设（会议版见 1996 AAAI）。这直接触及本书的逻辑根基。<br><b>回应/修补：</b>Kevin Van Horn（2003，《Int. J. Approximate Reasoning》）用更弱、更自然的公设重构了证明，恢复了"概率是似真推理唯一自洽延伸"的结论。<br><b>现状：</b>哲学论断本身仍被普遍接受，但学界公认 <b>Jaynes 书中沿用的原始证明不够严格</b>，需后人补上技术条件——这是确凿的地基裂缝，非风格之争（Halpern、Van Horn、维基综述三方印证）。</p></div>
+  </div>
+
+  <div class="myth">
+    <div class="claim"><div class="q">② 边缘化悖论：无信息先验的病态</div><div class="verdict half">悬而未决的争议</div></div>
+    <div class="fact"><p><b>批评：</b>Dawid、Stone、Zidek（<b>1973</b>，《JRSS-B》，"Marginalization Paradoxes in Bayesian and Structural Inference"）指出：用<b>非正常(improper)先验</b>时，按不同顺序边缘化会得到互相矛盾的后验——这是无信息先验特有的病态。<br><b>回应：</b>Jaynes 辩称根源在于对"完成的无穷"操作不当，非正常先验应作为正常先验的极限来处理。<br><b>现状：</b>主流看法（含 Christian Robert 等）认为这不是对贝叶斯主义的致命反驳，而是一记警告：<b>非正常先验的"边缘"不能当正常概率来解释</b>。此外 Jaynes 用来保证客观性的"变换群原理"也被 Drory（2015）质疑并未真正提供其宣称的唯一性。</p></div>
+  </div>
+
+  <div class="myth">
+    <div class="claim"><div class="q">③ "无信息先验"并非学界共识</div><div class="verdict half">部分成立</div></div>
+    <div class="fact"><p><b>批评：</b>频率派嫌它缺客观依据、频率覆盖性差；主观贝叶斯派指"无信息"本身是误称（任何先验都带信息），且 Jeffreys 先验、参考先验、最大熵先验对同一问题常给出<b>不同</b>答案。当代代表人物 <b>Andrew Gelman</b> 批评 Jaynes 式客观贝叶斯模型不可证伪、缺模型检验，主张改用"<b>弱信息先验</b>"。<br><b>回应/语境：</b>有分析指出 Jaynes 与 Gelman 的分歧很大程度源于领域不同——Jaynes 面向有第一性原理支撑的物理问题，Gelman 面向缺理论基础的社科"脏数据"。<br><b>现状：</b>客观先验在实践中被广泛使用，但从未成为统一共识；当代主流已更多转向"弱信息先验"。</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">STYLE · 风格之争</div>
+  <h2>论战笔法：是缺点还是特色？</h2>
+  <div class="myth">
+    <div class="claim"><div class="q">④ 对频率派的措辞过于尖刻、片面</div><div class="verdict no">风格争议 · 不改其价值</div></div>
+    <div class="fact"><p><b>观察：</b>AMS《Notices》书评（Faris, 2006）直言全书行文"<b>polemical</b>(论战性)"，把 Cox、Jeffreys 当"英雄"、把 Fisher 及频率派当"反派"，对哲学家 Carnap 的评价也相当尖刻。<br><b>另一面：</b>同一批书评者多把这视为<b>个性而非致命缺陷</b>。《Physics Today》书评（Baierlein）称"600 多页读下来只对少数论断有异议""其推导往往比正统统计学更有说服力"，但也承认本书<b>缺乏优秀教材应有的表述经济性</b>、门槛偏高。<br><b>结论：</b>这属修辞/风格层面，与 Cox 定理那种"证明有洞"的技术批评性质不同，总体评价仍偏高。</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">BIG PICTURE · 大背景</div>
+  <h2>贝叶斯 vs 频率派：这场仗现在打完了吗？</h2>
+  <p class="lead-p">本书是贝叶斯阵营历史性的"战斗檄文"，针对的是 1930 年代 Fisher–Neyman 体系崛起后统计学转向频率派、丢失了"概率即逻辑"这一洞见的年代。但今天的图景已经不同。</p>
+  <div class="vs">
+    <div class="side pro">
+      <h3>📕 本书写作的年代</h3>
+      <ul>
+        <li>贝叶斯 vs 频率派非此即彼、阵营对抗</li>
+        <li>频率派是学院主流，贝叶斯被边缘化</li>
+        <li>Jaynes 以檄文姿态为贝叶斯"复权"</li>
+      </ul>
+    </div>
+    <div class="side pro" style="border-top-color:#9a7420;box-shadow:4px 4px 0 #efe6cf">
+      <h3>📗 当代主流态度</h3>
+      <ul>
+        <li>火药味大降，趋向<b>务实融合</b></li>
+        <li>Efron：下一波突破是两派<b>融合</b>而非某派全胜</li>
+        <li>很多场景下客观贝叶斯与频率派结论差异可忽略</li>
+        <li>"因场景选工具"成为共识</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:12px">所以读这本书时要有历史意识：它的<strong>洞见依然锋利，但它的敌我叙事属于那个更对立的年代</strong>。把它当思想武器，而非当代统计实践的操作手册。</p>
+</section>
+
+<section>
+  <div class="eyebrow">VERDICT · 一句话</div>
+  <h2>怎么给它定位</h2>
+  <p class="lead-p">《概率论沉思录》是一部<strong>地基有裂缝、笔法有偏激、却依然伟大</strong>的书。它的伟大不在于每个证明都无懈可击（并非如此），而在于它提供了一种极具穿透力的<strong>看待概率与推理的方式</strong>。用它训练直觉、用它质疑成规——包括质疑它自己——这才是对这本书最贝叶斯的读法。</p>
+</section>
+
+<div class="pager">
+  <a href="author.html">← 作者与成书</a>
+  <a href="reading.html">阅读指南 →</a>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>RP 03 · 概率论沉思录 · 争议与批评</p>
+    <p><a href="sources.html">来源与核验 →</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
