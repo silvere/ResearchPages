@@ -1,0 +1,147 @@
+/* RP 05 · 奥斯特罗姆 · 公地档案主题：湖水蓝 + 陶土红（灌溉与水权意象） */
+:root{
+  --paper:#f4f3ec; --paper-deep:#eae8dc; --ink:#1c2024; --muted:#5f6360;
+  --lake:#1f4a5c; --lake-deep:#12313f; --lake-wash:#dde8ea;
+  --clay:#b0562f; --clay-deep:#82391b; --clay-wash:#f3e2d5;
+  --stamp:#9c2f28; --ok:#2f6b4c;
+  --line:#d6d3c4; --scan:rgba(31,74,92,.045);
+  --serif:"Songti SC","Noto Serif SC","STSong",serif;
+  --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --mono:"SF Mono",ui-monospace,"Menlo",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.85;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 30px,var(--scan) 30px,var(--scan) 31px);}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+/* ── 导航 ─────────────────────────── */
+.nav{position:sticky;top:0;z-index:50;background:var(--lake-deep);border-bottom:2px solid var(--clay)}
+.nav-inner{max-width:1000px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.nav-brand{font-family:var(--serif);font-weight:900;font-size:17px;color:#f2f1e9;text-decoration:none;padding:12px 0}
+.nav-brand .mk{color:var(--clay);font-family:var(--mono);font-weight:400}
+.nav-links{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto}
+.nav-links a{font-size:13.5px;color:#b4c4c9;text-decoration:none;padding:12px 11px;border-bottom:2px solid transparent;margin-bottom:-2px}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:#fff;border-bottom-color:var(--clay);font-weight:600}
+
+/* ── 头部 ─────────────────────────── */
+.hero{padding:64px 0 48px;border-bottom:3px double var(--ink);margin-bottom:56px;background:linear-gradient(180deg,var(--lake-wash),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr}}
+.stamp-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--clay-deep);text-transform:uppercase}
+.stamp{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--stamp);border:1.5px solid var(--stamp);
+  padding:2px 10px;transform:rotate(-2deg);text-transform:uppercase;white-space:nowrap}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4.6vw,50px);line-height:1.25;letter-spacing:.01em}
+.lede{font-size:17px;color:#3b3f3c;margin-top:18px}
+.lede strong{color:var(--lake)}
+blockquote{border-left:3px solid var(--clay);padding:6px 0 6px 18px;color:#42463f;font-family:var(--serif);font-size:15.5px}
+blockquote cite{display:block;margin-top:8px;font-family:var(--mono);font-size:11px;font-style:normal;letter-spacing:.1em;color:var(--muted)}
+.quote-en{font-family:Baskerville,"Times New Roman",serif;font-style:italic;color:var(--lake)}
+
+/* ── 章节 ─────────────────────────── */
+section{margin-bottom:72px}
+h2{font-family:var(--serif);font-weight:900;font-size:clamp(24px,3.2vw,32px);margin:10px 0 22px;line-height:1.35}
+h3{font-family:var(--serif);font-weight:700;font-size:19px;margin-bottom:8px;line-height:1.4}
+p+p{margin-top:12px}
+.grid{display:grid;gap:20px}
+.cols-2{grid-template-columns:repeat(2,1fr)}
+.cols-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.cols-2,.cols-3{grid-template-columns:1fr}}
+.card{border:1.5px solid var(--ink);background:#fdfcf5;padding:22px;box-shadow:4px 4px 0 var(--lake-wash)}
+.card p{font-size:14.5px;color:#3b3f38}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:2px 9px;margin-bottom:10px;
+  background:var(--lake);color:#fff;text-transform:uppercase}
+.tag.clay{background:var(--clay-deep)}
+.tag.red{background:var(--stamp)}
+.tag.green{background:var(--ok)}
+.tag.hollow{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+/* ── 图表 ─────────────────────────── */
+.figure{border:1.5px solid var(--ink);background:#fdfcf5;padding:20px;margin:26px 0;box-shadow:4px 4px 0 var(--clay-wash)}
+.figure svg{display:block;width:100%;height:auto}
+.figcap{font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:14px;padding-top:12px}
+.figcap b{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--clay-deep)}
+
+/* ── 数据表 ─────────────────────────── */
+.tbl-scroll{overflow-x:auto;border:1.5px solid var(--ink);background:#fdfcf5;box-shadow:4px 4px 0 var(--lake-wash)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;text-align:left;
+  background:var(--lake-deep);color:#e6e9e2;padding:10px 14px;white-space:nowrap}
+td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+tr.hl td{background:var(--clay-wash)}
+td.num{font-family:var(--mono);font-size:13px;white-space:nowrap}
+
+/* ── 原则卡（八项设计原则） ─────────── */
+.principles{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.principle{border:1.5px solid var(--ink);background:#fdfcf5;box-shadow:4px 4px 0 var(--clay-wash);display:flex;flex-direction:column}
+.principle .spine{height:7px;background:linear-gradient(90deg,var(--lake),var(--lake-deep))}
+.principle .bd{padding:20px;flex:1}
+.principle .no{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--clay-deep)}
+.principle h3{margin:6px 0 2px;font-size:18px}
+.principle .en{font-family:Baskerville,"Times New Roman",serif;font-style:italic;font-size:13.5px;color:var(--muted);margin-bottom:10px}
+.principle p{font-size:14px;color:#3b3f38}
+.principle .case{border-top:1px dashed var(--line);margin-top:12px;padding-top:10px;font-size:13.5px;color:var(--lake)}
+
+/* ── 关键数字 ─────────────────────────── */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:24px 0}
+.stat{border:1.5px solid var(--ink);background:#fdfcf5;padding:18px 18px 14px;box-shadow:4px 4px 0 var(--clay-wash)}
+.stat .v{font-family:var(--serif);font-weight:900;font-size:30px;color:var(--lake);line-height:1.1}
+.stat .v small{font-size:16px}
+.stat .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);margin-top:6px;text-transform:uppercase}
+
+/* ── 时间线 ─────────────────────────── */
+.tl{list-style:none;border-left:2px solid var(--lake);margin:8px 0 8px 6px;padding-left:26px}
+.tl li{position:relative;padding-bottom:26px}
+.tl li::before{content:"";position:absolute;left:-32.5px;top:9px;width:11px;height:11px;background:var(--paper);
+  border:2.5px solid var(--lake);border-radius:50%}
+.tl li.clay::before{border-color:var(--clay);background:var(--clay-wash)}
+.tl li.red::before{border-color:var(--stamp)}
+.tl .d{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--clay-deep)}
+.tl h3{margin:2px 0 4px}
+.tl p{font-size:14.5px;color:#3b3f38}
+
+/* ── 观点对照 ─────────────────────────── */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:820px){.vs{grid-template-columns:1fr}}
+.vs .side{border:1.5px solid var(--ink);background:#fdfcf5;padding:22px}
+.vs .side.pro{box-shadow:4px 4px 0 #dbe7e1;border-top:6px solid var(--ok)}
+.vs .side.con{box-shadow:4px 4px 0 #f0dcd8;border-top:6px solid var(--stamp)}
+.vs .side h3{display:flex;align-items:center;gap:10px}
+.vs .side ul{margin:10px 0 0 18px}
+.vs .side li{font-size:14.5px;color:#3b3f38;margin-bottom:10px}
+
+/* ── 案例卡 ─────────────────────────── */
+.case-card{border:1.5px solid var(--ink);background:#fdfcf5;box-shadow:4px 4px 0 var(--lake-wash);margin-bottom:20px}
+.case-card .hd{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line)}
+.case-card .hd .loc{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--clay-deep);text-transform:uppercase}
+.case-card .hd h3{margin:0;flex:1}
+.case-card .bd{padding:18px 20px}
+.case-card .bd p{font-size:14.5px;color:#3b3f38}
+.badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;padding:2px 9px;text-transform:uppercase;white-space:nowrap}
+.badge.ok{background:var(--ok);color:#fff}
+.badge.fail{background:var(--stamp);color:#fff}
+.badge.mixed{background:var(--clay-deep);color:#fff}
+
+/* ── 核验标注 ─────────────────────────── */
+.verify{font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:1px 7px;vertical-align:2px;white-space:nowrap}
+.verify.ok{color:var(--ok);border:1px solid var(--ok)}
+.verify.warn{color:var(--clay-deep);border:1px solid var(--clay-deep)}
+.verify.no{color:var(--stamp);border:1px solid var(--stamp)}
+
+/* ── 来源列表 ─────────────────────────── */
+.src{border:1px solid var(--line);background:#fdfcf5;padding:16px 18px;margin-bottom:12px}
+.src .t{font-weight:700;font-size:15px}
+.src a{color:var(--lake);text-decoration:underline;text-decoration-color:var(--clay);word-break:break-all;font-size:13.5px}
+.src .m{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:4px}
+
+/* ── 页脚 ─────────────────────────── */
+.pager{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:24px;margin-top:56px;flex-wrap:wrap}
+.pager a{font-weight:700;color:var(--lake);text-decoration:none;font-size:14.5px}
+.pager a:hover{color:var(--clay-deep)}
+footer{border-top:3px double var(--ink);padding:30px 0 52px;margin-top:80px}
+footer p,footer a{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-decoration:none}
+footer a:hover{color:var(--clay-deep)}
+.foot-row{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+a.inline{color:var(--lake);text-decoration:underline;text-decoration-color:var(--clay)}
