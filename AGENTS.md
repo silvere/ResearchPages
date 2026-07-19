@@ -51,6 +51,8 @@ ResearchPages/
 2. `README.md` 报告列表加一行。
 3. 本地预览验证（见下），然后 commit + push，Pages 自动上线。
 
+**Phase D 是硬性收尾**：站点建完默认立即 commit + push，无需等待用户确认——没推上 `main` 的站等于没交付。每次开工前先 `git status`：若发现上一会话遗留的完整未提交站点，先按其编号单独补交，本次主题编号顺延。
+
 ## 视觉语言
 
 - UTF-8、`lang="zh-CN"`、语义化标签、两空格缩进；类名 lowercase kebab-case；主题色进 `:root` 自定义属性。
