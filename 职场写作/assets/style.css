@@ -104,6 +104,52 @@ td b{color:var(--red)}
 .src-list a:hover{color:var(--red)}
 .src-meta{font-family:var(--mono);font-size:11.5px;color:var(--muted);display:block;margin-top:3px}
 
+/* ── 坏例/好例对照 ─────────────────── */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1.5px solid var(--ink);margin:18px 0;background:#fffdf7}
+@media(max-width:720px){.ba{grid-template-columns:1fr}}
+.ba>div{padding:18px 20px}
+.ba .bad{background:#f8eceb;border-right:1.5px solid var(--ink)}
+@media(max-width:720px){.ba .bad{border-right:none;border-bottom:1.5px solid var(--ink)}}
+.ba .good{background:#eaf1ec}
+.ba .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;font-weight:700}
+.ba .bad .lbl{color:var(--stamp)}
+.ba .good .lbl{color:var(--ok)}
+.ba p{font-size:14.5px;line-height:1.7;color:#33302b}
+.ba .why{margin-top:12px;font-size:13px;color:#5a5850;border-top:1px dashed var(--line);padding-top:10px}
+.ba .why b{color:var(--ok)}
+del{color:var(--stamp);text-decoration:line-through;text-decoration-thickness:1.5px}
+ins{color:var(--ok);text-decoration:none;background:#dff0e4;padding:0 2px}
+.rw-btn{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:#fff;background:var(--ok);border:none;
+  padding:8px 14px;cursor:pointer;font-weight:700}
+.rw-btn:hover{background:#255536}
+.rw .rw-body{margin-top:14px}
+
+/* ── 规则表：该做/不该做 ────────────── */
+.rules{border:1.5px solid var(--ink);margin:18px 0}
+.rule-row{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid var(--line)}
+.rule-row:first-child{border-top:none}
+@media(max-width:720px){.rule-row{grid-template-columns:1fr}}
+.rule-row>div{padding:14px 18px;font-size:14px}
+.rule-row .do{background:#eaf1ec}
+.rule-row .dont{background:#f8eceb;border-left:1.5px solid var(--line)}
+@media(max-width:720px){.rule-row .dont{border-left:none;border-top:1.5px solid var(--line)}}
+.rule-row .hd{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:6px;font-weight:700}
+.rule-row .do .hd{color:var(--ok)}
+.rule-row .dont .hd{color:var(--stamp)}
+
+/* ── 模板块 ───────────────────────── */
+.tmpl{border:1.5px solid var(--ink);background:#20242b;color:#e9e6df;padding:18px 20px;margin:14px 0;
+  font-family:var(--mono);font-size:13px;line-height:1.9;white-space:pre-wrap;box-shadow:4px 4px 0 var(--slate-wash)}
+.tmpl .slot{color:var(--gold)}
+
+/* ── 自查清单 ─────────────────────── */
+.check{list-style:none;margin:16px 0}
+.check li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--line);font-size:15px}
+.check li::before{content:"☐";position:absolute;left:4px;top:8px;font-size:18px;color:var(--red)}
+.check li b{color:var(--red)}
+.step{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--red);color:#fff;
+  font-family:var(--mono);font-size:13px;font-weight:700;border-radius:50%;margin-right:8px;vertical-align:middle}
+
 /* ── 页脚 ─────────────────────────── */
 footer{border-top:3px double var(--ink);padding:30px 0 52px;margin-top:80px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
