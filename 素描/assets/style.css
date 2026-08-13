@@ -1,0 +1,164 @@
+/* RP 11 · 素描 · 三色粉笔主题：石墨灰 + 赭红 sanguine + 白垩纸（DOSSIER / 画室档案） */
+:root{
+  --paper:#f2efe8; --paper-deep:#e7e2d8; --ink:#23242a; --muted:#62605c;
+  --graphite:#4a5058; --graphite-deep:#2b3038; --graphite-wash:#dee3e8;
+  --sanguine:#a8543a; --sanguine-deep:#7d3a25; --sanguine-wash:#f0dfd6;
+  --ok:#4a6b4d; --warn:#96762a;
+  --line:#d5d0c4; --hatch:rgba(74,80,88,.05);
+  --serif:"Songti SC","Noto Serif SC","STSong",serif;
+  --sans:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --mono:"SF Mono",ui-monospace,"Menlo",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.85;
+  background-image:repeating-linear-gradient(-38deg,transparent,transparent 7px,var(--hatch) 7px,var(--hatch) 8px);}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+/* ── 导航 ─────────────────────────── */
+.nav{position:sticky;top:0;z-index:50;background:var(--graphite-deep);border-bottom:2px solid var(--sanguine)}
+.nav-inner{max-width:1000px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.nav-brand{font-family:var(--serif);font-weight:900;font-size:17px;color:#f2efe6;text-decoration:none;padding:12px 0}
+.nav-brand .mk{color:var(--sanguine);font-family:var(--mono);font-weight:400}
+.nav-links{display:flex;flex-wrap:wrap;gap:2px;margin-left:auto}
+.nav-links a{font-size:13.5px;color:#b5b2ac;text-decoration:none;padding:12px 11px;border-bottom:2px solid transparent;margin-bottom:-2px}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:#fff;border-bottom-color:var(--sanguine);font-weight:600}
+
+/* ── 头部 ─────────────────────────── */
+.hero{padding:64px 0 48px;border-bottom:3px double var(--ink);margin-bottom:56px;
+  background:linear-gradient(180deg,var(--graphite-wash),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr}}
+.stamp-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--sanguine-deep);text-transform:uppercase}
+.stamp{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--sanguine);border:1.5px solid var(--sanguine);
+  padding:2px 10px;transform:rotate(-2deg);text-transform:uppercase;white-space:nowrap}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(31px,4.5vw,49px);line-height:1.25;letter-spacing:.01em}
+.lede{font-size:17px;color:#3a3a40;margin-top:18px}
+.lede strong{color:var(--sanguine-deep);font-weight:700}
+blockquote{border-left:3px solid var(--sanguine);padding:6px 0 6px 18px;color:#3c3c44;font-family:var(--serif);font-size:15.5px}
+blockquote cite{display:block;margin-top:8px;font-family:var(--mono);font-size:11px;font-style:normal;letter-spacing:.1em;color:var(--muted)}
+
+/* ── 章节 ─────────────────────────── */
+section{margin-bottom:72px}
+h2{font-family:var(--serif);font-weight:900;font-size:clamp(24px,3.2vw,32px);margin:10px 0 22px;line-height:1.35}
+h3{font-family:var(--serif);font-weight:700;font-size:19px;margin-bottom:8px;line-height:1.4}
+p+p{margin-top:12px}
+.grid{display:grid;gap:20px}
+.cols-2{grid-template-columns:repeat(2,1fr)}
+.cols-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.cols-2,.cols-3{grid-template-columns:1fr}}
+.card{border:1.5px solid var(--ink);background:#fffdf8;padding:22px;box-shadow:4px 4px 0 var(--graphite-wash)}
+.card p{font-size:14.5px;color:#3c3c42}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:2px 9px;margin-bottom:10px;
+  background:var(--graphite);color:#fff;text-transform:uppercase}
+.tag.sang{background:var(--sanguine-deep)}
+.tag.ok{background:var(--ok)}
+.tag.warn{background:var(--warn)}
+.tag.hollow{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+/* ── 结论条 ───────────────────────── */
+.verdict{border:2px solid var(--graphite);background:#fffdf8;padding:26px 28px;box-shadow:6px 6px 0 var(--graphite-wash);margin-bottom:40px}
+.verdict .v-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--sanguine-deep);text-transform:uppercase;margin-bottom:10px}
+.verdict p{font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.7}
+.verdict p b{color:var(--sanguine)}
+
+/* ── 表格 ─────────────────────────── */
+.table-scroll{overflow-x:auto;border:1.5px solid var(--ink);background:#fffdf8}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;text-align:left;
+  background:var(--graphite-deep);color:#eef1f4;padding:10px 14px;white-space:nowrap}
+td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:var(--paper-deep)}
+td b{color:var(--sanguine-deep)}
+.num{font-family:var(--mono);white-space:nowrap}
+
+/* ── 信息图容器 ────────────────────── */
+.fig{border:1.5px solid var(--ink);background:#fffdf8;padding:20px;box-shadow:4px 4px 0 var(--graphite-wash)}
+.fig svg{width:100%;height:auto;display:block}
+.fig-cap{font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.06em;margin-top:12px}
+
+/* ── 时间线 ───────────────────────── */
+.timeline{border-left:2.5px solid var(--graphite);margin-left:8px;padding-left:26px}
+.tl-item{position:relative;margin-bottom:28px}
+.tl-item::before{content:"";position:absolute;left:-33px;top:8px;width:11px;height:11px;background:var(--paper);
+  border:2.5px solid var(--graphite);border-radius:50%}
+.tl-item.major::before{background:var(--sanguine);border-color:var(--sanguine)}
+.tl-year{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.08em;color:var(--sanguine-deep)}
+.tl-item h3{margin:4px 0 4px}
+.tl-item p{font-size:14.5px;color:#42424a}
+
+/* ── 双栏对照 ─────────────────────── */
+.duo{border:1.5px solid var(--ink);margin:18px 0}
+.duo-row{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid var(--line)}
+.duo-row:first-child{border-top:none}
+@media(max-width:720px){.duo-row{grid-template-columns:1fr}}
+.duo-row>div{padding:14px 18px;font-size:14px}
+.duo-row .a{background:var(--paper-deep)}
+.duo-row .b{background:#f5e9e2;border-left:1.5px solid var(--line)}
+@media(max-width:720px){.duo-row .b{border-left:none;border-top:1.5px solid var(--line)}}
+.duo-row .hd{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:6px;font-weight:700}
+.duo-row .a .hd{color:var(--graphite)}
+.duo-row .b .hd{color:var(--sanguine-deep)}
+
+/* ── 阶梯/目录 ────────────────────── */
+.toc{border:1.5px solid var(--ink);background:#fffdf8}
+.toc-row{display:flex;gap:14px;padding:11px 18px;border-top:1px solid var(--line);align-items:baseline;font-size:14px}
+.toc-row:first-child{border-top:none}
+.toc-row .cn{font-family:var(--mono);font-weight:700;color:var(--sanguine-deep);min-width:52px}
+.toc-row.hl{background:var(--graphite-wash)}
+.toc-row .pg{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+/* ── 备注 / 存疑 ──────────────────── */
+.note{border:1.5px dashed var(--graphite);background:var(--graphite-wash);padding:16px 20px;font-size:14px;color:#2c2f36}
+.note b{color:var(--graphite-deep)}
+.doubt{border:1.5px dashed var(--sanguine);background:var(--sanguine-wash);padding:16px 20px;font-size:14px;color:#5e2f1f}
+.doubt b{color:var(--sanguine-deep)}
+
+/* ── 证据强度徽章（本站特有）──────── */
+.ev{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;margin:8px 0}
+.ev-cells{display:inline-flex;gap:3px}
+.ev-cells i{width:17px;height:8px;display:inline-block;border:1.5px solid var(--muted);background:transparent}
+.ev[data-lv="strong"] .ev-cells i{border-color:var(--ok)}
+.ev[data-lv="strong"] i.on{background:var(--ok)}
+.ev[data-lv="strong"] .ev-t{color:var(--ok)}
+.ev[data-lv="mixed"] .ev-cells i{border-color:var(--warn)}
+.ev[data-lv="mixed"] i.on{background:var(--warn)}
+.ev[data-lv="mixed"] .ev-t{color:#7a6021}
+.ev[data-lv="weak"] .ev-cells i{border-color:var(--sanguine)}
+.ev[data-lv="weak"] i.on{background:var(--sanguine)}
+.ev[data-lv="weak"] .ev-t{color:var(--sanguine-deep)}
+.ev-t{font-weight:700}
+
+/* ── 练习卡（本站特有）────────────── */
+.drill{border:1.5px solid var(--ink);background:#fffdf8;padding:0;margin:18px 0;box-shadow:4px 4px 0 var(--graphite-wash)}
+.drill-hd{background:var(--graphite-deep);color:#f2efe6;padding:12px 20px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.drill-hd .n{font-family:var(--mono);font-size:12px;color:var(--sanguine);letter-spacing:.14em}
+.drill-hd h3{margin:0;font-size:17px;color:#fff}
+.drill-hd .src{margin-left:auto;font-family:var(--mono);font-size:11px;color:#a9a6a0}
+.drill-bd{padding:18px 20px;font-size:14.5px}
+.drill-bd ol{margin:8px 0 8px 20px}
+.drill-bd li{margin:5px 0}
+.drill-bd .trains{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--sanguine-deep);
+  border-top:1px solid var(--line);padding-top:10px;margin-top:12px}
+
+/* ── 来源页 ───────────────────────── */
+.src-group{margin-bottom:40px}
+.src-list{list-style:none}
+.src-list li{padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.src-list a{color:var(--sanguine-deep);word-break:break-all;text-decoration:none;border-bottom:1px dotted var(--sanguine-deep)}
+.src-list a:hover{color:var(--sanguine)}
+.src-meta{font-family:var(--mono);font-size:11.5px;color:var(--muted);display:block;margin-top:3px}
+
+/* ── 页脚 ─────────────────────────── */
+footer{border-top:3px double var(--ink);padding:30px 0 52px;margin-top:80px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+footer p,footer a{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-decoration:none}
+footer a:hover{color:var(--sanguine)}
+
+a.text-link{color:var(--sanguine-deep);text-decoration:underline;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--sanguine);outline-offset:2px}
